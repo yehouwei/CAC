@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg">
+
+    <com.zy.zhongyiandroid.ui.widget.Header
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/header"/>
+    <ImageView 
+        android:id="@+id/imgLogo"
+        android:background="@drawable/bg_sort_default"
+        android:layout_below="@id/header"
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp" 
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        
+        />
+    <TextView 
+        android:id="@+id/tvTitle"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/color_ff7353"
+        
+        android:textSize="15sp"
+        android:layout_below="@id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_detail"
+        />
+	<ImageView 
+	    android:id="@+id/imgLine"
+        android:layout_below="@id/tvTitle"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@drawable/line"
+        />
+	<TextView 
+        android:id="@+id/tvContent"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/imgLine"
+        android:textColor="@color/color_8f857c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_detail"
+        />
+</RelativeLayout>

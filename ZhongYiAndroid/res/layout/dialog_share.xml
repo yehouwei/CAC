@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"	android:background="@drawable/bg_dialog_share">
+	<GridView 
+        android:id="@+id/gridview"
+        android:padding="15dp"
+        android:numColumns="4"
+        android:horizontalSpacing="@dimen/header2_item_space"
+        android:verticalSpacing="@dimen/header2_item_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"> 
+    </GridView>
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_baby_line"
+        />
+    <TextView 
+        android:id="@+id/tvCancel"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:background="@drawable/share_text_color_selector"
+        android:textColor="@color/color_3b3b3b"
+        android:text="取消"
+        />
+
+</LinearLayout>

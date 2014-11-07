@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imgSubCatory"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/bg_sort_default"/>
+
+    <TextView
+        android:id="@+id/tvSubCatoryName"
+        android:background="#5f5443"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom"
+        android:textColor="@color/e3d7cd"
+        android:textSize="20dp"
+        android:textStyle="bold" >
+    </TextView>
+
+</FrameLayout>

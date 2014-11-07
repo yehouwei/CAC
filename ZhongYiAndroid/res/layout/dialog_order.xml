@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dialog_userslgoin"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="欲到访门店"
+        android:textColor="@color/app_text" />
+
+    <RelativeLayout
+        android:id="@+id/rlShop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/btn_dialog_order_selector"
+        android:paddingLeft="10dp"
+        android:paddingRight="15dp" >
+
+        <TextView
+            android:id="@+id/tvshop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/app_text" />
+
+        <ImageView
+            android:id="@+id/imgShopFliter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_dialog_fliter" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/imgShopFliter"
+            android:src="@drawable/line_dialog_order" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="到访事宜"
+        android:textColor="@color/app_text" />
+
+    <RelativeLayout
+        android:id="@+id/rlEvent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/btn_dialog_order_selector"
+        android:paddingLeft="10dp"
+        android:paddingRight="15dp" >
+
+        <TextView
+            android:id="@+id/tvEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/app_text" />
+
+        <ImageView
+            android:id="@+id/imgEventFliter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_dialog_fliter" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/imgEventFliter"
+            android:src="@drawable/line_dialog_order" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btnDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog_order_selector"
+            android:text="选择日期"
+            android:textColor="@color/app_text" />
+
+        <Button
+            android:id="@+id/btnTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog_order_selector"
+            android:text="选择时间"
+            android:textColor="@color/app_text" />
+    </LinearLayout>
+
+    <EditText
+          android:id="@+id/etName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_location_serachedit"
+        android:hint="阁下姓名:"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15sp" >
+    </EditText>
+
+    <EditText
+       android:id="@+id/etPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_location_serachedit"
+        android:hint="阁下电话:"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/app_text"
+        android:textSize="15sp" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_location_serachedit"
+        android:hint="阁下邮箱:"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/app_text"
+        android:textSize="15sp" >
+    </EditText>
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btnPositive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog_order_positive_selector"
+            android:text="确定预约"
+            android:textColor="@color/app_text" />
+
+        <Button
+            android:id="@+id/btnCancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog_order_positive_selector"
+            android:text="取消"
+            android:textColor="@color/app_text" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
