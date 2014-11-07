@@ -45,7 +45,7 @@ public class BaseActivity  extends SwipeBackActivity {
 		 mSwipeBackLayout.addSwipeListener(new SwipeBackLayout.SwipeListener() {
 	            @Override
 	            public void onScrollStateChange(int state, float scrollPercent) {
-
+//
 	            }
 
 	            @Override
