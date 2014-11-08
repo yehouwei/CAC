@@ -60,12 +60,10 @@ public class ServerUrl {
 					+ "&dataFormat=" + DATA_FORMAT;
 		}else if((regionId!=0)&(keyWord==null)){
 			return URL_STORES + "?page=" + pageNum + "&pageSize=" + pageSize+ "&regionId="+regionId+"&dataFormat=" + DATA_FORMAT;
-		}else{
-
-			
-				
+		}else{				
 		return URL_STORES + "?page=" + pageNum + "&pageSize=" + pageSize
 				+ "&keyWord="+keyWord+"&dataFormat=" + DATA_FORMAT;
+		//
 		}
 	}
 
