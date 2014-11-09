@@ -117,7 +117,7 @@ public class MessageFragment extends BaseFragment {
 				// TODO Auto-generated method stub
 				
 
-				MessageDeatailAcitvity.startActivity(getActivity(), mMessages.get(position).getId());
+				MessageDeatailAcitvity.startActivity(getActivity(), mMessages.get(position-1).getId());
 			}
 		});
 		
