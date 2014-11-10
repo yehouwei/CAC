@@ -24,6 +24,8 @@ public  class SharedPreferencesManager {
 	
 	public static final String USER_SCORE="userScore";
 	
+	public static final String USER_ID="userId";
+	
 	
 	/**
 	 * 写入boolean

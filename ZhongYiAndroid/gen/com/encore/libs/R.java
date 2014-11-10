@@ -71,19 +71,19 @@ public final class R {
 	public static final class id {
 		public static final int all = 0x7f05000f;
 		public static final int bottom = 0x7f05000e;
-		public static final int date_day = 0x7f050052;
-		public static final int date_month = 0x7f050051;
-		public static final int date_year = 0x7f050050;
+		public static final int date_day = 0x7f050050;
+		public static final int date_month = 0x7f05004f;
+		public static final int date_year = 0x7f05004e;
 		public static final int decrement = 0x7f05008b;
-		public static final int discard = 0x7f05004e;
-		public static final int image = 0x7f05004c;
+		public static final int discard = 0x7f05004c;
+		public static final int image = 0x7f05004a;
 		public static final int increment = 0x7f050089;
 		public static final int left = 0x7f05000c;
 		public static final int numberpicker_input = 0x7f05008a;
-		public static final int progressBar1 = 0x7f05004f;
+		public static final int progressBar1 = 0x7f05004d;
 		public static final int right = 0x7f05000d;
 		public static final int rotate = 0x7f050007;
-		public static final int save = 0x7f05004d;
+		public static final int save = 0x7f05004b;
 		public static final int swipe = 0x7f050096;
 		public static final int time_am = 0x7f05009a;
 		public static final int time_hours = 0x7f050097;
@@ -95,8 +95,8 @@ public final class R {
 		public static final int np_config_longAnimTime = 0x7f090000;
 	}
 	public static final class layout {
-		public static final int crop_image = 0x7f030012;
-		public static final int date_picker = 0x7f030013;
+		public static final int crop_image = 0x7f030011;
+		public static final int date_picker = 0x7f030012;
 		public static final int number_picker = 0x7f030026;
 		public static final int swipeback_layout = 0x7f03002b;
 		public static final int time_picker = 0x7f03002c;

@@ -101,7 +101,7 @@ public class HttpApi {
 			int pageSize, OnRequestListener onRequestListener) {
 		Request request = new Request(ServerUrl.getOrderUrl(userId, pageNum,
 				pageSize));
-		request.setParser(new MyJsonParser(Store.class, true));
+		request.setParser(new MyJsonParser(Order.class, true));
 		request.setOnRequestListener(onRequestListener);
 		HttpConnectManager.getInstance(context).doGet(request);
 	}

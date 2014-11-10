@@ -2,8 +2,6 @@ package com.zy.zhongyiandroid.data.bean;
 
 import java.io.Serializable;
 
-import android.R.integer;
-
 public class Order implements Serializable {
 	 private String creatDateTime;
 	private String phone;

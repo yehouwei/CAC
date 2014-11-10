@@ -38,6 +38,13 @@ public class UserData {
 	public String getUserScore(){
 		return mSharedPreferencesManager.readStringPreferences(SharedPreferencesManager.USER_SCORE);
 	}
+	public void setUserId(int UserId){
+		mSharedPreferencesManager.writeIntPreferences(SharedPreferencesManager.USER_ID,UserId);
+	}
+	
+	public int getUserId(){
+		return mSharedPreferencesManager.readIntPreferences(SharedPreferencesManager.USER_ID);
+	}
 	
 	
 	

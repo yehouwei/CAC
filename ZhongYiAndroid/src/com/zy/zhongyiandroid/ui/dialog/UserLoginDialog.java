@@ -142,6 +142,7 @@ public class UserLoginDialog extends Dialog {
 							userData.setisShowLogin(userLoginResult.getIsLogin());
 							userData.setUserAccount(etUser.getText().toString());
 							userData.setUserScore(userInfo.getScore());
+							userData.setUserId(userInfo.getUserId());
 							dismiss();
 							mOnDialogClickListener.startActivity();
 							
