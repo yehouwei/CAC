@@ -28,12 +28,18 @@ public class UserData {
 		mSharedPreferencesManager.writeStringPreferences(SharedPreferencesManager.USER_ACCOUNT,UserAccount);
 	}
 	
-	/**
-	 * 客户端是否已经展示过引导页面
-	 */
 	public String getUserAccount(){
 		return mSharedPreferencesManager.readStringPreferences(SharedPreferencesManager.USER_ACCOUNT);
 	}	
+	public void setUserScore(String UserScore){
+		mSharedPreferencesManager.writeStringPreferences(SharedPreferencesManager.USER_SCORE,UserScore);
+	}
+	
+	public String getUserScore(){
+		return mSharedPreferencesManager.readStringPreferences(SharedPreferencesManager.USER_SCORE);
+	}
+	
+	
 	
 
 	

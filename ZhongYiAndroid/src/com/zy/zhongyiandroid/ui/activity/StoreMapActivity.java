@@ -19,8 +19,11 @@ import com.zy.zhongyiandroid.data.Api.HttpApi;
 import com.zy.zhongyiandroid.data.bean.Order;
 import com.zy.zhongyiandroid.data.bean.OrderPost;
 import com.zy.zhongyiandroid.data.bean.Store;
+import com.zy.zhongyiandroid.data.shared.UserData;
 import com.zy.zhongyiandroid.ui.dialog.OrderDialog;
+import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog;
 import com.zy.zhongyiandroid.ui.dialog.OrderDialog.OnOrderDialogClickListener;
+import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog.OnLoginDialogClickListener;
 import com.zy.zhongyiandroid.ui.widget.Header;
 
 import android.R.integer;
@@ -49,6 +52,7 @@ public class StoreMapActivity extends BaseActivity {
 	ImageButton mbtnCall;
 	Store store;
 	OrderPost mOrderPost;
+	UserData userData = new UserData();
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -75,14 +79,15 @@ public class StoreMapActivity extends BaseActivity {
 				.findFragmentById(R.id.map)).getMap();
 		NKUT = new LatLng(Double.parseDouble(store.getLongitude()),
 				Double.parseDouble(store.getGeography()));
-		if(map!=null){
-		Marker nkut = map.addMarker(new MarkerOptions().position(NKUT)
-				.title(store.getName()).snippet(store.getAddress()));
-		
-		// Move the camera instantly to NKUT with a zoom of 16.
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(NKUT, 16));
-		}else{
-			Toast.makeText(this, "您的手机未支持谷歌服务，请联系手机厂商", Toast.LENGTH_LONG).show();
+		if (map != null) {
+			Marker nkut = map.addMarker(new MarkerOptions().position(NKUT)
+					.title(store.getName()).snippet(store.getAddress()));
+
+			// Move the camera instantly to NKUT with a zoom of 16.
+			map.moveCamera(CameraUpdateFactory.newLatLngZoom(NKUT, 16));
+		} else {
+			Toast.makeText(this, "您的手机未支持谷歌服务，请联系手机厂商", Toast.LENGTH_LONG)
+					.show();
 		}
 		mbtnCall.setOnClickListener(new OnClickListener() {
 
@@ -123,11 +128,10 @@ public class StoreMapActivity extends BaseActivity {
 		});
 	}
 
-	public static void startActivity(Context c, 
-			Store store) {
+	public static void startActivity(Context c, Store store) {
 		Intent i = new Intent(c, StoreMapActivity.class);
 		i.putExtra("store", store);
-		//i.putExtra("shoplist", shoplist);
+		// i.putExtra("shoplist", shoplist);
 		c.startActivity(i);
 	}
 
@@ -149,26 +153,45 @@ public class StoreMapActivity extends BaseActivity {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					final OrderDialog mOrderDialog = new OrderDialog(
-							StoreMapActivity.this, R.style.MyDialog, null
-							);
-//				    ZhongYi mZhongYi = ((ZhongYi)getApplicationContext());  
-//				    mZhongYi.setStoreList(storeList)
-					// mOrderDialog.setShopData(getIntent().getExtras().getStringArray("store"));
-					mOrderDialog.setOnOrderDialogClickListener(new OnOrderDialogClickListener() {
-						
-						@Override
-						public void onClick(View v, Order order) {
-							// TODO Auto-generated method stub
-							post(order);
-							mOrderDialog.dismiss();
-						}
-					});
-					mOrderDialog.showDialog();
+					if (!userData.getIsShowLogin()) {
+						UserLoginDialog userLoginDialog = new UserLoginDialog(
+								StoreMapActivity.this, R.style.MyDialog);
+						userLoginDialog
+								.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
 
+									@Override
+									public void startActivity() {
+										// TODO Auto-generated method stub
+										initOrderDialog();
+									}
+								});
+						userLoginDialog.showDialog();
+
+					} else {
+						initOrderDialog();
+					}
 				}
 			});
 		}
+	}
+
+	void initOrderDialog() {
+		final OrderDialog mOrderDialog = new OrderDialog(StoreMapActivity.this,
+				R.style.MyDialog, null);
+		// ZhongYi mZhongYi = ((ZhongYi)getApplicationContext());
+		// mZhongYi.setStoreList(storeList)
+		// mOrderDialog.setShopData(getIntent().getExtras().getStringArray("store"));
+		mOrderDialog
+				.setOnOrderDialogClickListener(new OnOrderDialogClickListener() {
+
+					@Override
+					public void onClick(View v, Order order) {
+						// TODO Auto-generated method stub
+						post(order);
+						mOrderDialog.dismiss();
+					}
+				});
+		mOrderDialog.showDialog();
 	}
 
 	@Override
@@ -182,12 +205,13 @@ public class StoreMapActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
+
 	private void post(Order order) {
 		// TODO Auto-generated method stub
-		HttpApi.order(this, order, 
-				mOnRequestListener);
+		HttpApi.order(this, order, mOnRequestListener);
 	}
-	Handler mHandler=new Handler();
+
+	Handler mHandler = new Handler();
 	public OnRequestListener mOnRequestListener = new OnRequestListener() {
 
 		@Override
@@ -199,17 +223,18 @@ public class StoreMapActivity extends BaseActivity {
 				public void run() {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
-							OrderPost mOrderPost;
-							mOrderPost=(OrderPost)result;
-							if(mOrderPost!=null){
-							Toast.makeText(StoreMapActivity.this, mOrderPost.getMessage(), Toast.LENGTH_LONG).show();
-							}
+						OrderPost mOrderPost;
+						mOrderPost = (OrderPost) result;
+						if (mOrderPost != null) {
+							Toast.makeText(StoreMapActivity.this,
+									mOrderPost.getMessage(), Toast.LENGTH_LONG)
+									.show();
 						}
-
-
 					}
-				});
-			}
+
+				}
+			});
+		}
 	};
 
 }

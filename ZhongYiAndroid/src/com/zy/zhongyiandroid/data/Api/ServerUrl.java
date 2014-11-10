@@ -16,6 +16,7 @@ public class ServerUrl {
 	public static String URL_REIGION = ROOT + "region/getList.do";
 	public static String URL_STORES = ROOT + "shop/getPageList.do";
 	public static String URl_USER = ROOT + "user/getById.do";
+	public static String URL_LOGIN=ROOT+"loginManage/login.do";
 	public static String URL_ORDER = ROOT + "arrange/getPageListByUserId.do";
 	public static String DATA_FORMAT = "ZH_CN";
 	
@@ -27,7 +28,7 @@ public class ServerUrl {
 	}
 
 	public static String getMessageDetailUrl(int messageId) {
-		return URL_MESSAGE_DETAIL + "?id=" + messageId + "&dataFormat="
+		return URL_MESSAGE_DETAIL + "?id=" + messageId + "&dataFosrmat="
 				+ DATA_FORMAT;
 
 	}
@@ -67,8 +68,8 @@ public class ServerUrl {
 		}
 	}
 
-	public static String getUserUrl(int userId) {
-		return URl_USER + "?userId=" + userId + "&dataFormat=" + DATA_FORMAT;
+	public static String getLoginUrl(String  loginName,String password) {
+		return URL_LOGIN + "?loginName=" + loginName + "&password="+password+"&dataFormat=" + DATA_FORMAT;
 	}
 
 	public static String getOrderUrl(int userId, int pageNum, int pageSize) {

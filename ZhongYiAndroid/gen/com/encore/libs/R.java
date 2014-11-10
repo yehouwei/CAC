@@ -12,24 +12,24 @@ public final class R {
 		public static final int slide_to_left_slow = 0x7f040011;
 	}
 	public static final class attr {
-		public static final int SwipeBackLayoutStyle = 0x7f010038;
-		public static final int edge_flag = 0x7f010034;
-		public static final int edge_size = 0x7f010033;
-		public static final int flingable = 0x7f01003e;
-		public static final int numberPickerDownButtonStyle = 0x7f01003b;
-		public static final int numberPickerInputTextStyle = 0x7f01003c;
-		public static final int numberPickerStyle = 0x7f010039;
-		public static final int numberPickerUpButtonStyle = 0x7f01003a;
-		public static final int selectionDivider = 0x7f01003f;
-		public static final int selectionDividerHeight = 0x7f010040;
-		public static final int selectionDividersDistance = 0x7f010041;
-		public static final int shadow_bottom = 0x7f010037;
-		public static final int shadow_left = 0x7f010035;
-		public static final int shadow_right = 0x7f010036;
-		public static final int solidColor = 0x7f01003d;
+		public static final int SwipeBackLayoutStyle = 0x7f010018;
+		public static final int edge_flag = 0x7f010014;
+		public static final int edge_size = 0x7f010013;
+		public static final int flingable = 0x7f01001e;
+		public static final int numberPickerDownButtonStyle = 0x7f01001b;
+		public static final int numberPickerInputTextStyle = 0x7f01001c;
+		public static final int numberPickerStyle = 0x7f010019;
+		public static final int numberPickerUpButtonStyle = 0x7f01001a;
+		public static final int selectionDivider = 0x7f01001f;
+		public static final int selectionDividerHeight = 0x7f010020;
+		public static final int selectionDividersDistance = 0x7f010021;
+		public static final int shadow_bottom = 0x7f010017;
+		public static final int shadow_left = 0x7f010015;
+		public static final int shadow_right = 0x7f010016;
+		public static final int solidColor = 0x7f01001d;
 	}
 	public static final class color {
-		public static final int f16d1d = 0x7f090017;
+		public static final int f16d1d = 0x7f080000;
 	}
 	public static final class drawable {
 		public static final int camera_crop_height = 0x7f020036;
@@ -69,8 +69,8 @@ public final class R {
 		public static final int shadow_right = 0x7f0200a6;
 	}
 	public static final class id {
-		public static final int all = 0x7f050023;
-		public static final int bottom = 0x7f050022;
+		public static final int all = 0x7f05000f;
+		public static final int bottom = 0x7f05000e;
 		public static final int date_day = 0x7f050052;
 		public static final int date_month = 0x7f050051;
 		public static final int date_year = 0x7f050050;
@@ -78,10 +78,10 @@ public final class R {
 		public static final int discard = 0x7f05004e;
 		public static final int image = 0x7f05004c;
 		public static final int increment = 0x7f050089;
-		public static final int left = 0x7f050020;
+		public static final int left = 0x7f05000c;
 		public static final int numberpicker_input = 0x7f05008a;
 		public static final int progressBar1 = 0x7f05004f;
-		public static final int right = 0x7f050021;
+		public static final int right = 0x7f05000d;
 		public static final int rotate = 0x7f050007;
 		public static final int save = 0x7f05004d;
 		public static final int swipe = 0x7f050096;
@@ -92,7 +92,7 @@ public final class R {
 		public static final int time_switcher = 0x7f050099;
 	}
 	public static final class integer {
-		public static final int np_config_longAnimTime = 0x7f0a0001;
+		public static final int np_config_longAnimTime = 0x7f090000;
 	}
 	public static final class layout {
 		public static final int crop_image = 0x7f030012;
@@ -102,34 +102,34 @@ public final class R {
 		public static final int time_picker = 0x7f03002c;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f07002d;
-		public static final int np_number_picker_decrement_button = 0x7f07002c;
-		public static final int np_number_picker_increment_button = 0x7f07002b;
-		public static final int np_number_picker_increment_scroll_action = 0x7f07002a;
-		public static final int np_number_picker_increment_scroll_mode = 0x7f070029;
+		public static final int app_name = 0x7f07000a;
+		public static final int np_number_picker_decrement_button = 0x7f070009;
+		public static final int np_number_picker_increment_button = 0x7f070008;
+		public static final int np_number_picker_increment_scroll_action = 0x7f070007;
+		public static final int np_number_picker_increment_scroll_mode = 0x7f070006;
 	}
 	public static final class style {
-		public static final int AiTheme = 0x7f080015;
-		public static final int AiThemeSample = 0x7f080005;
-		public static final int AiThemeSample_Light = 0x7f080006;
-		public static final int AiTheme_Light = 0x7f080016;
-		public static final int AiWidget = 0x7f080007;
-		public static final int AiWidget_EditText = 0x7f08000e;
-		public static final int AiWidget_EditText_NumberPickerInputText = 0x7f08000d;
-		public static final int AiWidget_EditText_NumberPickerInputText_Light = 0x7f08000a;
-		public static final int AiWidget_ImageButton = 0x7f080011;
-		public static final int AiWidget_ImageButton_NumberPickerDownButton = 0x7f080010;
-		public static final int AiWidget_ImageButton_NumberPickerDownButton_Light = 0x7f08000c;
-		public static final int AiWidget_ImageButton_NumberPickerUpButton = 0x7f08000f;
-		public static final int AiWidget_ImageButton_NumberPickerUpButton_Light = 0x7f08000b;
-		public static final int AiWidget_Light_NumberPicker = 0x7f080009;
-		public static final int AiWidget_NumberPicker = 0x7f080008;
-		public static final int AppBaseTheme = 0x7f080012;
-		public static final int AppTheme = 0x7f080013;
-		public static final int SwipeBackLayout = 0x7f080014;
+		public static final int AiTheme = 0x7f0a0010;
+		public static final int AiThemeSample = 0x7f0a0000;
+		public static final int AiThemeSample_Light = 0x7f0a0001;
+		public static final int AiTheme_Light = 0x7f0a0011;
+		public static final int AiWidget = 0x7f0a0002;
+		public static final int AiWidget_EditText = 0x7f0a0009;
+		public static final int AiWidget_EditText_NumberPickerInputText = 0x7f0a0008;
+		public static final int AiWidget_EditText_NumberPickerInputText_Light = 0x7f0a0005;
+		public static final int AiWidget_ImageButton = 0x7f0a000c;
+		public static final int AiWidget_ImageButton_NumberPickerDownButton = 0x7f0a000b;
+		public static final int AiWidget_ImageButton_NumberPickerDownButton_Light = 0x7f0a0007;
+		public static final int AiWidget_ImageButton_NumberPickerUpButton = 0x7f0a000a;
+		public static final int AiWidget_ImageButton_NumberPickerUpButton_Light = 0x7f0a0006;
+		public static final int AiWidget_Light_NumberPicker = 0x7f0a0004;
+		public static final int AiWidget_NumberPicker = 0x7f0a0003;
+		public static final int AppBaseTheme = 0x7f0a000d;
+		public static final int AppTheme = 0x7f0a000e;
+		public static final int SwipeBackLayout = 0x7f0a000f;
 	}
 	public static final class styleable {
-		public static final int[] NumberPicker = { 0x010100c4, 0x010100e0, 0x0101011f, 0x01010120, 0x0101013f, 0x01010140, 0x7f01003d, 0x7f01003e, 0x7f01003f, 0x7f010040, 0x7f010041 };
+		public static final int[] NumberPicker = { 0x010100c4, 0x010100e0, 0x0101011f, 0x01010120, 0x0101013f, 0x01010140, 0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021 };
 		public static final int NumberPicker_android_fadingEdgeLength = 1;
 		public static final int NumberPicker_android_maxHeight = 3;
 		public static final int NumberPicker_android_maxWidth = 2;
@@ -141,7 +141,7 @@ public final class R {
 		public static final int NumberPicker_selectionDividerHeight = 9;
 		public static final int NumberPicker_selectionDividersDistance = 10;
 		public static final int NumberPicker_solidColor = 6;
-		public static final int[] SwipeBackLayout = { 0x7f010033, 0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037 };
+		public static final int[] SwipeBackLayout = { 0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017 };
 		public static final int SwipeBackLayout_edge_flag = 1;
 		public static final int SwipeBackLayout_edge_size = 0;
 		public static final int SwipeBackLayout_shadow_bottom = 4;

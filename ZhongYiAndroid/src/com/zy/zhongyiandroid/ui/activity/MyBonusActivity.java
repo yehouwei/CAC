@@ -7,11 +7,10 @@ import com.encore.libs.http.OnRequestListener;
 import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.data.Api.HttpApi;
 import com.zy.zhongyiandroid.data.bean.MyApiResult;
-import com.zy.zhongyiandroid.data.bean.User;
+import com.zy.zhongyiandroid.data.bean.UserInfo;
+import com.zy.zhongyiandroid.data.shared.UserData;
 import com.zy.zhongyiandroid.ui.widget.CircleBonusBar;
 import com.zy.zhongyiandroid.ui.widget.Header;
-import com.zy.zhongyiandroid.ui.widget.UserLoginDialog;
-
 import android.R.integer;
 import android.app.Dialog;
 import android.content.Context;
@@ -45,14 +44,15 @@ public class MyBonusActivity extends BaseActivity {
 
 	Button btnCancle;
 	
-	User user;
+	UserInfo user;
+	
+	UserData userData=new UserData();
 
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
 		setContentView(R.layout.activity_mybonus);
-	//	intitdialog();
 		initHeader();
 		initUI();
 
@@ -77,7 +77,7 @@ public class MyBonusActivity extends BaseActivity {
 				if(etUser.getText().toString().equals("")||etPassword.getText().toString().equals("")){
 					toast("用户名或密码不能为空");
 				}else {
-					request();
+				/*	request();*/
 				}
 			}
 		});
@@ -104,13 +104,8 @@ public class MyBonusActivity extends BaseActivity {
 				.findViewById(R.id.circleBonusBar);
 		tvBonus = (TextView) this.findViewById(R.id.bonus);
 			mCircleBonusBar.setMax(100); 
-			tvBonus.setText("50");
+			tvBonus.setText(userData.getUserScore());
 
-		handler.sendEmptyMessage(50); 
-
-		 /* mCircleBonusBar.setProgress(userLoginDialog.getScore());
-		 * bonusTextView.setText(String.valueOf(userLoginDialog.getScore()));
-		 */
 	}
 
 	public static void startActivity(Context c,String value) {
@@ -134,56 +129,6 @@ public class MyBonusActivity extends BaseActivity {
 		}
 	}
 
-	public void request() {
-
-		HttpApi.getUser(MyBonusActivity.this, 1, mOnRequestListener);
-	}
-
-	Handler mHandler = new Handler();
-	public OnRequestListener mOnRequestListener = new OnRequestListener() {
-
-		@Override
-		public void onResponse(String url, final int state,
-				final Object result, int type) {
-
-			mHandler.post(new Runnable() {
-
-				@Override
-				public void run() {
-					if ((state == HttpConnectManager.STATE_SUC)
-							&& (result != null)) {
-						List<User> users = null;
-
-
-							users = (List<User>)result;
-							
-							user=users.get(0);
-						/*	mCircleBonusBar.setMax(100); */
-
-							/*handler.sendEmptyMessage(50)*/; 	
-							
-							
-						
-
-/*					if (users != null && users.size() != 0) {
-							if (users.get(0).getUserPassword()
-									.equals(etPassword.getText().toString())) {
-								mCircleBonusBar.setProgress(users.get(0).getScore());
-								bonusTextView.setText(String.valueOf(users.get(0).getScore()));
-								dialog.dismiss();
-							} else {
-								toast("账号/密码不存在");
-							}
-				
-				
-						}*/
-
-					}
-				}
-			});
-
-		}
-	};
 
 	@Override
 	protected void onResume() {
@@ -200,15 +145,5 @@ public class MyBonusActivity extends BaseActivity {
 	void toast(String text) {
 		Toast.makeText(this, text, Toast.LENGTH_LONG).show();
 	}
-	Handler handler=new Handler(){
-		public void handleMessage(android.os.Message msg) { 
-			mCircleBonusBar.setProgress(msg.what);                        
-			if (i <= mCircleBonusBar.getMax()) {                                
-				handler.sendEmptyMessage(50); 
-				
-				}             
-			}        
-			   
-	};
 
 }

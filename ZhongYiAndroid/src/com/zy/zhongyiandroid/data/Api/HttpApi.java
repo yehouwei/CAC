@@ -18,6 +18,7 @@ import com.zy.zhongyiandroid.data.bean.OrderPost;
 import com.zy.zhongyiandroid.data.bean.Region;
 import com.zy.zhongyiandroid.data.bean.Store;
 import com.zy.zhongyiandroid.data.bean.SubCategory;
+import com.zy.zhongyiandroid.data.bean.UserInfo;
 
 public class HttpApi {
 	/**
@@ -87,10 +88,10 @@ public class HttpApi {
 		HttpConnectManager.getInstance(context).doGet(request);
 	}
 
-	public static void getUser(Context context, int userId,
+	public static void getLogin(Context context, String loginName,String password,
 			OnRequestListener onRequestListener) {
-		Request request = new Request(ServerUrl.getUserUrl(userId));
-		request.setParser(new MyJsonParser(Store.class, true));
+		Request request = new Request(ServerUrl.getLoginUrl(loginName, password));
+		request.setParser(new UserJsonParser(UserInfo.class, false));
 		request.setOnRequestListener(onRequestListener);
 		HttpConnectManager.getInstance(context).doGet(request);
 	}

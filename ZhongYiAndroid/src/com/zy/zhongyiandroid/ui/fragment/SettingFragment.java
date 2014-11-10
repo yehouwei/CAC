@@ -29,6 +29,8 @@ import com.zy.zhongyiandroid.data.shared.UserData;
 import com.zy.zhongyiandroid.ui.activity.MyBonusActivity;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
 import com.zy.zhongyiandroid.ui.activity.MyOrderActivity;
+import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog;
+import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog.OnLoginDialogClickListener;
 
 import com.zy.zhongyiandroid.ui.widget.Header;
 
@@ -58,15 +60,8 @@ public class SettingFragment extends BaseFragment {
 
 	UserData userData = new UserData();
 
-	Dialog dialog;
 
-	EditText etUser;
 
-	EditText etPassword;
-
-	Button btnPositive;
-
-	Button btnCancle;
 
 	DisplayImageOptions options;
 
@@ -206,7 +201,18 @@ public class SettingFragment extends BaseFragment {
 			 */
 			case R.id.myBonus:
 				if (!userData.getIsShowLogin()) {
-					intitdialog();
+					UserLoginDialog dialog = new UserLoginDialog(getActivity(), R.style.MyDialog);
+					dialog.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
+						
+						@Override
+						public void startActivity() {
+							// TODO Auto-generated method stub
+							MyOrderActivity.startActivity(getActivity(), getActivity()
+									.getString(R.string.tab_personal));
+						}
+						
+					});
+					dialog.showDialog();
 				} else {
 					MyBonusActivity.startActivity(getActivity(), getActivity()
 							.getString(R.string.tab_personal));
@@ -218,7 +224,18 @@ public class SettingFragment extends BaseFragment {
 			 */
 			case R.id.myOrder:
 				if (!userData.getIsShowLogin()) {
-					intitdialog();
+					UserLoginDialog dialog = new UserLoginDialog(getActivity(), R.style.MyDialog);
+					dialog.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
+						
+						@Override
+						public void startActivity() {
+							// TODO Auto-generated method stub
+							MyOrderActivity.startActivity(getActivity(), getActivity()
+									.getString(R.string.tab_personal));
+						}
+						
+					});
+					dialog.showDialog();
 				} else {
 					MyOrderActivity.startActivity(getActivity(), getActivity()
 							.getString(R.string.tab_personal));
@@ -248,47 +265,22 @@ public class SettingFragment extends BaseFragment {
 	 * initData(); } };
 	 */
 
-	private void intitdialog() {
+/*	private void intitdialog() {
 		// TODO Auto-generated method stub
 
-		dialog = new Dialog(getActivity(), R.style.MyDialog);
-		dialog.setContentView(R.layout.dialog_user_login);
-		dialog.setCanceledOnTouchOutside(false);
-
-		btnPositive = (Button) dialog.findViewById(R.id.btnPositive);
-		btnCancle = (Button) dialog.findViewById(R.id.btnCancle);
-		etUser = (EditText) dialog.findViewById(R.id.etUsers);
-		etPassword = (EditText) dialog.findViewById(R.id.EtPassWord);
-		dialog.show();
-
-		btnPositive.setOnClickListener(new OnClickListener() {
-
+		UserLoginDialog dialog = new UserLoginDialog(getActivity(), R.style.MyDialog);
+		dialog.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
+			
 			@Override
-			public void onClick(View arg0) {
+			public void startActivity() {
 				// TODO Auto-generated method stub
-				if (etUser.getText().toString().equals("")
-						|| etPassword.getText().toString().equals("")) {
-					toast("用户名或密码不能为空");
-				} else {
-					
-					dialog.dismiss();
-					userData.setisShowLogin(true);
-					toast("登录成功");
-					userData.setUserAccount(etUser.getText().toString());
-				}
+				
 			}
+			
 		});
-		btnCancle.setOnClickListener(new OnClickListener() {
+		dialog.showDialog();
 
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				dialog.dismiss();
-
-			}
-		});
-	}
-
+	}*/
 	void toast(String text) {
 		Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
 	}
