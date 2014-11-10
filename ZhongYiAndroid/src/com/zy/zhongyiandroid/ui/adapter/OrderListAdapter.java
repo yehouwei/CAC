@@ -1,6 +1,9 @@
 package com.zy.zhongyiandroid.ui.adapter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -16,28 +19,29 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class OrderListAdapter extends BaseAdapter{
+public class OrderListAdapter extends BaseAdapter {
 	ImageLoader mImageLoader = ImageLoader.getInstance();
 	DisplayImageOptions options;
-	private List<Order> mList=new ArrayList<Order>();
+	private List<Order> mList = new ArrayList<Order>();
 	LayoutInflater mLayoutInflater;
-	public OrderListAdapter(Context context){
-		mLayoutInflater=LayoutInflater.from(context);
-		options = new DisplayImageOptions.Builder()
-		.cacheInMemory(true)
-		.cacheOnDisc(true)
-		.considerExifParams(true)
-		.bitmapConfig(Bitmap.Config.RGB_565)
-		.build();
+	Context context;
+
+	public OrderListAdapter(Context context) {
+		this.context=context;
+		mLayoutInflater = LayoutInflater.from(context);
+		options = new DisplayImageOptions.Builder().cacheInMemory(true)
+				.cacheOnDisc(true).considerExifParams(true)
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return mList==null? 0:mList.size();
+		return mList == null ? 0 : mList.size();
 	}
-	public void setDatas(List<Order> list){
-		this.mList=list;
+
+	public void setDatas(List<Order> list) {
+		this.mList = list;
 	}
 
 	@Override
@@ -56,36 +60,52 @@ public class OrderListAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		HolderView mHolderView;
-		if(convertView==null){
-			convertView = mLayoutInflater.inflate(R.layout.adapter_information, null);
+		if (convertView == null) {
+			convertView = mLayoutInflater.inflate(R.layout.adapter_orderlist,
+					null);
 			mHolderView = new HolderView(convertView);
 			convertView.setTag(mHolderView);
-		}else{
+		} else {
 			mHolderView = (HolderView) convertView.getTag();
 		}
 		mHolderView.setData(mList.get(position));
 		return convertView;
 	}
-	public class HolderView{
-		private ImageView mImageView;
-		private TextView mTittleTextView;
-		private TextView mContentTextView;
-		public  HolderView(View view) {
-			// TODO Auto-generated constructor stub
-			mImageView=(ImageView)view.findViewById(R.id.imageView);
-			mTittleTextView=(TextView)view.findViewById(R.id.InfoTittle);
-			mContentTextView=(TextView)view.findViewById(R.id.InfoContent);
-		}
-		public void setData(Order order){
 
-//			mImageView.setBackgroundResource(info.getInfoImageView());
-			mTittleTextView.setText(order.getShopName());
-			mContentTextView.setText(order.getArrageDateTime());
-			
-			mImageLoader.displayImage(order.getShopImages(), mImageView, options);
+	public class HolderView {
+		private ImageView mImgShop;
+		private TextView mtvShopName;
+		private TextView mtvArrangeTime;
+		private TextView mtvEvent;
+
+		public HolderView(View view) {
+			// TODO Auto-generated constructor stub
+			mImgShop = (ImageView) view.findViewById(R.id.imgShop);
+			mtvShopName = (TextView) view.findViewById(R.id.tvShopName);
+			mtvArrangeTime = (TextView) view.findViewById(R.id.tvArrangeTiime);
+			mtvEvent = (TextView) view.findViewById(R.id.tvArrangeEvent);
+		}
+
+		public void setData(Order order) {
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date dateArrange;
+			try {
+				dateArrange = sdf.parse(order.getArrageDateTime());
+				if(dateArrange.before(new Date())){
+					mtvArrangeTime.setTextColor(context.getResources().getColor(R.color.bonus_point));
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// mImageView.setBackgroundResource(info.getInfoImageView());
+			mtvShopName.setText(order.getShopName());
+			mtvArrangeTime.setText(order.getArrageDateTime());
+
+			mtvEvent.setText(order.getRemarks());
+			mImageLoader.displayImage(order.getShopImges(), mImgShop, options);
 		}
 	}
-
-
 
 }

@@ -26,6 +26,7 @@ import com.zy.zhongyiandroid.data.bean.Order;
 import com.zy.zhongyiandroid.data.shared.UserData;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
 import com.zy.zhongyiandroid.ui.adapter.OrderListAdapter;
+import com.zy.zhongyiandroid.ui.dialog.OrderDialog;
 import com.zy.zhongyiandroid.ui.widget.Header;
 import com.zy.zhongyiandroid.ui.widget.LoadingInfo.OnRefreshClickListener;
 import com.zy.zhongyiandroid.ui.widget.list.XListView;
@@ -121,17 +122,17 @@ public class OrderListFragment extends BaseFragment {
 		mOrderListAdapter = new OrderListAdapter(getActivity());
 		mListView.setAdapter(mOrderListAdapter);
 		mOrderListAdapter.notifyDataSetChanged();
-/*		mListView.setOnItemClickListener(new OnItemClickListener() {
+		mListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
-
-				//MessageDeatailAcitvity.startActivity(getActivity(), mMessages.get(position-1).getId());
+				OrderDialog mOrderDialog=new OrderDialog(context, R.style.MyDialog, mOrders.get(position-1));
+				mOrderDialog.showDialog();
+				//MessagmeDeatailAcitvity.startActivity(getActivity(), mMessages.get(position-1).getId());
 			}
-		});*/
+		});
 		
 		initLoadingInfo(view);
 		// 异常情况下点击刷新按钮处理

@@ -117,8 +117,7 @@ public class OrderDialog extends Dialog {
 		RelativeLayout rlEvent = (RelativeLayout) findViewById(R.id.rlEvent);
 		tvShop = (TextView) findViewById(R.id.tvshop);
 		tvEvent = (TextView) findViewById(R.id.tvEvent);
-		tvShop.setText(stores.get(0).getName());
-		tvEvent.setText(context.getResources().getStringArray(R.array.event)[0]);
+
 		imgShopFliter = (ImageView) findViewById(R.id.imgShopFliter);
 		imgEventFliter = (ImageView) findViewById(R.id.imgEventFliter);
 		etName = (EditText) findViewById(R.id.etName);
@@ -131,6 +130,10 @@ public class OrderDialog extends Dialog {
 		btnCancle.setOnClickListener(clickListener);
 
 		if (isNew) {
+			tvShop.setText(stores.get(0).getName());
+			mOrder.setShopName(stores.get(0).getName());
+			mOrder.setShopId(stores.get(0).getId());		
+			tvEvent.setText(context.getResources().getStringArray(R.array.event)[0]);
 			rlShop.setOnTouchListener(onTouchListener);
 			rlEvent.setOnTouchListener(onTouchListener);
 			btnDate.setOnClickListener(clickListener);
@@ -140,7 +143,9 @@ public class OrderDialog extends Dialog {
 			btnPostive.setText("删除");
 			btnPostive.setOnClickListener(clickListener);
 			tvShop.setText(mOrder.getShopName());
-			tvEvent.setText(mOrder.getAppellation());
+			tvEvent.setText(mOrder.getRemarks());
+			btnDate.setText(mOrder.getArrageDateTime().split(" ")[0]);
+			btnTime.setText(mOrder.getArrageDateTime().split(" ")[1]);
 			etName.setText(mOrder.getUserName());
 			etPhone.setText(mOrder.getPhone());
 			etEmail.setText(mOrder.getEmail());
