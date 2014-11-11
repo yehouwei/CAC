@@ -40,6 +40,7 @@ import com.zy.zhongyiandroid.data.Api.ServerUrl;
 import com.zy.zhongyiandroid.data.bean.Item;
 import com.zy.zhongyiandroid.data.bean.Message;
 import com.zy.zhongyiandroid.data.bean.MyApiResult;
+import com.zy.zhongyiandroid.ui.activity.ImageShowActivity;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
 import com.zy.zhongyiandroid.ui.adapter.ItemsAdapter;
 import com.zy.zhongyiandroid.ui.adapter.MessageAdapter;
@@ -144,6 +145,14 @@ public class ProductDetailFragment extends BaseFragment {
 		mtvContent.setText(subSort.getItemDescription());
 		ImageLoader mImageLoader = ImageLoader.getInstance();
 		mImageLoader.displayImage(subSort.getHdImage(),mimgProduct,options);
+		mimgProduct.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				ImageShowActivity.startActivity(getActivity(),subSort.getHdImage());
+			}
+		});
 	}
 	
 	public void initHeader(View v){

@@ -14,6 +14,7 @@ import com.zy.zhongyiandroid.data.bean.Item;
 import com.zy.zhongyiandroid.data.bean.Message;
 import com.zy.zhongyiandroid.data.bean.MessageDetail;
 import com.zy.zhongyiandroid.data.bean.Order;
+import com.zy.zhongyiandroid.data.bean.OrderDelete;
 import com.zy.zhongyiandroid.data.bean.OrderPost;
 import com.zy.zhongyiandroid.data.bean.Region;
 import com.zy.zhongyiandroid.data.bean.Store;
@@ -102,6 +103,12 @@ public class HttpApi {
 		Request request = new Request(ServerUrl.getOrderUrl(userId, pageNum,
 				pageSize));
 		request.setParser(new MyJsonParser(Order.class, true));
+		request.setOnRequestListener(onRequestListener);
+		HttpConnectManager.getInstance(context).doGet(request);
+	}
+	public static void OrderDelete(Context context, int id, OnRequestListener onRequestListener) {
+		Request request = new Request(ServerUrl.deleteOrderUrl(id));	
+		request.setParser(new JsonParser(OrderDelete.class, false));
 		request.setOnRequestListener(onRequestListener);
 		HttpConnectManager.getInstance(context).doGet(request);
 	}

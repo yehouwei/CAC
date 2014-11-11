@@ -33,6 +33,7 @@ import com.zy.zhongyiandroid.ZhongYi;
 import com.zy.zhongyiandroid.data.Api.HttpApi;
 import com.zy.zhongyiandroid.data.bean.MyApiResult;
 import com.zy.zhongyiandroid.data.bean.Order;
+import com.zy.zhongyiandroid.data.bean.OrderDelete;
 import com.zy.zhongyiandroid.data.bean.OrderPost;
 import com.zy.zhongyiandroid.data.bean.Store;
 import com.zy.zhongyiandroid.ui.dialog.OrderDateDialog.OnDateDialogClickListener;
@@ -284,6 +285,8 @@ public class OrderDialog extends Dialog {
 						
 					}
 				} else {
+					delete(mOrder.getId());
+					dismiss();
 
 				}
 				break;
@@ -326,8 +329,10 @@ public class OrderDialog extends Dialog {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
 							mOrderPost=(OrderPost)result;
+
+								toast(context.getResources().getString(R.string.deleted_successfully));
 							
-							toast(mOrderPost.getMessage());
+							
 						}
 
 
@@ -335,6 +340,31 @@ public class OrderDialog extends Dialog {
 				});
 			}
 	};
-		
+	private void delete(int id) {
+		// TODO Auto-generated method stub
+		HttpApi.OrderDelete(context, id,mDeleteOnRequestListener);
+	}
+	public OnRequestListener mDeleteOnRequestListener = new OnRequestListener() {
+
+		@Override
+		public void onResponse(String url, final int state,
+				final Object result, int type) {
+			mHandler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					if ((state == HttpConnectManager.STATE_SUC)
+							&& (result != null)) {
+						OrderDelete mOrderDelete;
+						mOrderDelete=(OrderDelete)result;
+							
+							toast(mOrderDelete.getMessage());
+						}
+
+
+					}
+				});
+			}
+	};		
 	
 }

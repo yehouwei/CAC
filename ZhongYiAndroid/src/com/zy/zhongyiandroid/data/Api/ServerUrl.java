@@ -18,6 +18,7 @@ public class ServerUrl {
 	public static String URl_USER = ROOT + "user/getById.do";
 	public static String URL_LOGIN=ROOT+"loginManage/login.do";
 	public static String URL_ORDER = ROOT + "arrange/getPageListByUserId.do";
+	public static String URL_ORDER_DELETE=ROOT+"arrange/deleteById.do";
 	public static String DATA_FORMAT = "ZH_CN";
 	
 	public static String URL_ORDER_INSERT=ROOT+"arrange/insert.do";
@@ -75,5 +76,8 @@ public class ServerUrl {
 	public static String getOrderUrl(int userId, int pageNum, int pageSize) {
 		return URL_ORDER + "?userId=" + userId + "&page=" + pageNum
 				+ "&pageSize=" + pageSize + "&dataFormat=" + DATA_FORMAT;
+	}
+	public static String deleteOrderUrl(int id){
+		return URL_ORDER_DELETE+"?id="+id;
 	}
 }

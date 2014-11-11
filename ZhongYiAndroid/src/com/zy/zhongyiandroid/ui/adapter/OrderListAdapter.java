@@ -12,6 +12,7 @@ import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.data.bean.Order;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,13 +75,16 @@ public class OrderListAdapter extends BaseAdapter {
 
 	public class HolderView {
 		private ImageView mImgShop;
+		private ImageView mimgOrderPassed;
 		private TextView mtvShopName;
 		private TextView mtvArrangeTime;
 		private TextView mtvEvent;
+		
 
 		public HolderView(View view) {
 			// TODO Auto-generated constructor stub
 			mImgShop = (ImageView) view.findViewById(R.id.imgShop);
+			mimgOrderPassed=(ImageView)view.findViewById(R.id.imgOrderPassed);
 			mtvShopName = (TextView) view.findViewById(R.id.tvShopName);
 			mtvArrangeTime = (TextView) view.findViewById(R.id.tvArrangeTiime);
 			mtvEvent = (TextView) view.findViewById(R.id.tvArrangeEvent);
@@ -94,6 +98,7 @@ public class OrderListAdapter extends BaseAdapter {
 				dateArrange = sdf.parse(order.getArrageDateTime());
 				if(dateArrange.before(new Date())){
 					mtvArrangeTime.setTextColor(context.getResources().getColor(R.color.bonus_point));
+					mimgOrderPassed.setVisibility(View.VISIBLE);
 				}
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
