@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:divider="@color/app_text"
-        android:dividerHeight="2dp"
+        android:dividerHeight="1dp"
         ></ListView>
     
 

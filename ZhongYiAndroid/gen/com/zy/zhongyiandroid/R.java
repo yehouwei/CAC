@@ -1078,9 +1078,9 @@ containing a value of this type.
         public static final int pull_to_refresh_sub_text=0x7f080095;
         public static final int pull_to_refresh_text=0x7f080094;
         public static final int pull_to_refresh_updated_at=0x7f08009a;
-        public static final int rboBrands=0x7f080029;
+        public static final int rboBrands=0x7f080028;
         public static final int rboInformation=0x7f080027;
-        public static final int rboLoacation=0x7f080028;
+        public static final int rboLoacation=0x7f080029;
         public static final int rboPersonal=0x7f08002a;
         public static final int rgTabs=0x7f080025;
         public static final int right=0x7f080015;

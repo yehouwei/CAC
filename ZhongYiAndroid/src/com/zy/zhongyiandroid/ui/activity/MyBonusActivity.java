@@ -58,7 +58,7 @@ public class MyBonusActivity extends BaseActivity {
 
 	}
 
-	private void intitdialog() {
+/*	private void intitdialog() {
 		// TODO Auto-generated method stub
 		dialog=new Dialog(MyBonusActivity.this,R.style.MyDialog);
 		dialog.setContentView(R.layout.dialog_user_login);
@@ -77,7 +77,7 @@ public class MyBonusActivity extends BaseActivity {
 				if(etUser.getText().toString().equals("")||etPassword.getText().toString().equals("")){
 					toast("用户名或密码不能为空");
 				}else {
-				/*	request();*/
+					request();
 				}
 			}
 		});
@@ -90,7 +90,7 @@ public class MyBonusActivity extends BaseActivity {
 				finish();
 			}
 		});
-	}
+	}*/
 
 	@Override
 	protected void onStop() {
@@ -105,6 +105,9 @@ public class MyBonusActivity extends BaseActivity {
 		tvBonus = (TextView) this.findViewById(R.id.bonus);
 			mCircleBonusBar.setMax(100); 
 			tvBonus.setText(userData.getUserScore());
+			mCircleBonusBar.setProgress(Integer.parseInt(userData.getUserScore()));
+			mCircleBonusBar.setMax(1000);
+			mCircleBonusBar.invalidate();
 
 	}
 

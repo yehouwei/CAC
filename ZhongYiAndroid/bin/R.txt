@@ -559,9 +559,9 @@ int id pull_to_refresh_progress 0x7f080093
 int id pull_to_refresh_sub_text 0x7f080095
 int id pull_to_refresh_text 0x7f080094
 int id pull_to_refresh_updated_at 0x7f08009a
-int id rboBrands 0x7f080029
+int id rboBrands 0x7f080028
 int id rboInformation 0x7f080027
-int id rboLoacation 0x7f080028
+int id rboLoacation 0x7f080029
 int id rboPersonal 0x7f08002a
 int id rgTabs 0x7f080025
 int id right 0x7f080015
