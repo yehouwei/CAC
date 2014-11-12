@@ -126,12 +126,14 @@ public class MainActivity extends FragmentActivity implements MyRadioGroup.OnChe
 				newFragment = new MessageFragment();
 				
 				break;
-			case R.id.rboLoacation:
+			case R.id.rboBrands:
+
 				newFragment = new LoacationFragment();
 				break;
-			case R.id.rboBrands:
+			case R.id.rboLoacation:
 				newFragment = new MainCategoryFragment();
 				break;
+
 			case R.id.rboPersonal:
 				newFragment = new SettingFragment();
 				break;

@@ -43,6 +43,13 @@
             android:checked="true"
             android:drawableTop="@drawable/tab_home_selector"
             android:text="@string/tab_informantion" />
+        
+        <RadioButton
+            android:id="@+id/rboBrands"
+            style="@style/tab_style"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/tab_brands_selector"
+            android:text="@string/tab_selected_brand" />
 
         <RadioButton
             android:id="@+id/rboLoacation"
@@ -51,12 +58,6 @@
             android:drawableTop="@drawable/tab_location_selector"
             android:text="@string/tab_location" />
 
-        <RadioButton
-            android:id="@+id/rboBrands"
-            style="@style/tab_style"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/tab_brands_selector"
-            android:text="@string/tab_selected_brand" />
 
         <RadioButton
             android:id="@+id/rboPersonal"
