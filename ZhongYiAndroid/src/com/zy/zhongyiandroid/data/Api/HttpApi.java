@@ -129,4 +129,11 @@ public class HttpApi {
 
 		HttpConnectManager.getInstance(context).doPost(request,postParam);
 	}
+	
+	public static void getBonus(Context context, int userId, OnRequestListener onRequestListener) {
+		Request request = new Request(ServerUrl.getBonusURL(userId));
+		request.setParser(new JsonParser(UserInfo.class, false));
+		request.setOnRequestListener(onRequestListener);
+		HttpConnectManager.getInstance(context).doGet(request);
+	}
 }

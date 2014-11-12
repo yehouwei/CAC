@@ -11,12 +11,12 @@
         android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:id="@+id/progressBonus"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/header" >
 
         <FrameLayout
-            android:id="@+id/progressBonus"
             android:layout_width="fill_parent"
             android:layout_height="290dp"
             android:layout_marginTop="80dp" >
@@ -52,6 +52,12 @@
                     android:textSize="40sp" />
             </RelativeLayout>
         </FrameLayout>
+        
     </RelativeLayout>
+        <com.zy.zhongyiandroid.ui.widget.LoadingInfo
+        android:id="@+id/loadingInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header" />
 
 </RelativeLayout>

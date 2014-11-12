@@ -71,19 +71,19 @@ public final class R {
 	public static final class id {
 		public static final int all = 0x7f080017;
 		public static final int bottom = 0x7f080016;
-		public static final int date_day = 0x7f080056;
-		public static final int date_month = 0x7f080055;
-		public static final int date_year = 0x7f080054;
+		public static final int date_day = 0x7f080057;
+		public static final int date_month = 0x7f080056;
+		public static final int date_year = 0x7f080055;
 		public static final int decrement = 0x7f080090;
-		public static final int discard = 0x7f080052;
-		public static final int image = 0x7f080050;
+		public static final int discard = 0x7f080053;
+		public static final int image = 0x7f080051;
 		public static final int increment = 0x7f08008e;
 		public static final int left = 0x7f080014;
 		public static final int numberpicker_input = 0x7f08008f;
-		public static final int progressBar1 = 0x7f080053;
+		public static final int progressBar1 = 0x7f080054;
 		public static final int right = 0x7f080015;
 		public static final int rotate = 0x7f08001f;
-		public static final int save = 0x7f080051;
+		public static final int save = 0x7f080052;
 		public static final int swipe = 0x7f08009b;
 		public static final int time_am = 0x7f08009f;
 		public static final int time_hours = 0x7f08009c;
