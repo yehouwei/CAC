@@ -1213,9 +1213,9 @@ containing a value of this type.
         public static final int app_name=0x7f080004;
         public static final int arrive_shop_time=0x7f080043;
         public static final int cac=0x7f080048;
-        public static final int cancle=0x7f08004c;
-        public static final int choose_date=0x7f080052;
-        public static final int choose_time=0x7f080053;
+        public static final int cancle=0x7f08004d;
+        public static final int choose_date=0x7f080053;
+        public static final int choose_time=0x7f080054;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f08000e;
@@ -1316,6 +1316,7 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f080025;
         public static final int confirm=0x7f08004b;
+        public static final int confirm_order=0x7f08004c;
         public static final int confirm_to_call=0x7f08004a;
         public static final int create_calendar_message=0x7f08000a;
         public static final int create_calendar_title=0x7f080009;
@@ -1323,9 +1324,9 @@ containing a value of this type.
         public static final int deleted_successfully=0x7f080044;
         public static final int google_service_no_support=0x7f080049;
         public static final int hello_world=0x7f08002f;
-        public static final int logout=0x7f080054;
-        public static final int logout_confirm=0x7f080055;
-        public static final int logout_succeed=0x7f080056;
+        public static final int logout=0x7f080055;
+        public static final int logout_confirm=0x7f080056;
+        public static final int logout_succeed=0x7f080057;
         public static final int message_detail=0x7f080031;
         public static final int not_network=0x7f080040;
         public static final int np_number_picker_decrement_button=0x7f080003;
@@ -1361,17 +1362,17 @@ containing a value of this type.
          available or up-to-date 
          */
         public static final int wallet_buy_button_place_holder=0x7f080027;
-        public static final int what_event=0x7f08004e;
-        public static final int which_shop=0x7f08004d;
+        public static final int what_event=0x7f08004f;
+        public static final int which_shop=0x7f08004e;
         public static final int xlistview_footer_hint_normal=0x7f08003e;
         public static final int xlistview_footer_hint_ready=0x7f08003f;
         public static final int xlistview_header_hint_loading=0x7f08003c;
         public static final int xlistview_header_hint_normal=0x7f08003a;
         public static final int xlistview_header_hint_ready=0x7f08003b;
         public static final int xlistview_header_last_time=0x7f08003d;
-        public static final int your_email=0x7f080051;
-        public static final int your_name=0x7f08004f;
-        public static final int your_tel=0x7f080050;
+        public static final int your_email=0x7f080052;
+        public static final int your_name=0x7f080050;
+        public static final int your_tel=0x7f080051;
     }
     public static final class style {
         public static final int AiTheme=0x7f090010;

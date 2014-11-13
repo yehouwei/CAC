@@ -136,7 +136,7 @@ public class OrderListFragment extends BaseFragment {
 					public void onRefresh() {
 						// TODO Auto-generated method stub
 						//mIsFirstLoad=true;
-						request();
+						initData(null);
 					}
 				});
 					

@@ -117,7 +117,7 @@
     </LinearLayout>
 
     <EditText
-          android:id="@+id/etName"
+        android:id="@+id/etName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -125,17 +125,18 @@
         android:hint="@string/your_name"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textColor="@color/app_text"
         android:textSize="15sp" >
     </EditText>
 
     <EditText
-       android:id="@+id/etPhone"
-               android:inputType="number"
+        android:id="@+id/etPhone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_location_serachedit"
         android:hint="@string/your_tel"
+        android:inputType="number"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/app_text"
@@ -144,23 +145,24 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:inputType="textEmailAddress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_location_serachedit"
         android:hint="@string/your_email"
+        android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/app_text"
         android:textSize="15sp" >
     </EditText>
-        <LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
+        android:orientation="horizontal"
         android:weightSum="2" >
 
         <Button
@@ -170,7 +172,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_dialog_order_positive_selector"
-            android:text="确定预约"
+            android:text="@string/confirm_order"
             android:textColor="@color/app_text" />
 
         <Button
@@ -180,10 +182,8 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_dialog_order_positive_selector"
-            android:text="取消"
+            android:text="@string/cancle"
             android:textColor="@color/app_text" />
     </LinearLayout>
-
-
 
 </LinearLayout>

@@ -33,6 +33,7 @@
     <string name="google_service_no_support">您的手机未支持谷歌服务，请联系手机厂商</string>
     <string name="confirm_to_call">确定要打电话给</string>
     <string name="confirm">确定</string>
+    <string name="confirm_order">确定预约</string>
     <string name="cancle">取消</string>
     <string name="which_shop">欲到访门店</string>
     <string name="what_event">到访事宜</string>
