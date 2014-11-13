@@ -8,10 +8,13 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.InflateException;
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -34,6 +37,8 @@ public class LocationMapFragment extends BaseFragment {
 	 
 	 private     LatLng NKUT;;
 	 private static View view;
+	 
+	 TextView tvError;
 	 
 	 List<Store> mStoreList=new ArrayList<Store>();
 	 Store store;
@@ -87,11 +92,17 @@ public class LocationMapFragment extends BaseFragment {
 	 */
 	public void initUI(View view) {
 		FragmentManager myFM = getActivity().getSupportFragmentManager();
+		FragmentTransaction ft=myFM.beginTransaction();
 
 		final SupportMapFragment myMAPF = (SupportMapFragment) myFM
 		                .findFragmentById(R.id.map);
 		 mMap = myMAPF.getMap(); 
-
+		 tvError=(TextView)view.findViewById(R.id.tvErrorMap);
+			if(mMap==null){
+				ft.hide(myMAPF);
+				ft.commit();
+				tvError.setVisibility(View.VISIBLE);
+			}
 
 	}
 	public void addMapMaker(List<Store> stores){
@@ -105,5 +116,9 @@ public class LocationMapFragment extends BaseFragment {
 		NKUT=new LatLng( Double.parseDouble(stores.get(0).getLongitude()),Double.parseDouble(stores.get(0).getGeography()));
 		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(NKUT, 16));
 		}
+/*			Toast.makeText(getActivity(), getResources().getString(R.string.google_service_no_support), Toast.LENGTH_LONG)
+			.show();*/
+		
+			
 	}
 }

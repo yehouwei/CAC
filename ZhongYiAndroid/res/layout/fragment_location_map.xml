@@ -8,5 +8,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment" />
+        <TextView 
+        android:id="@+id/tvErrorMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="100dp"
+		android:gravity="center"
+		android:textSize="20sp"
+		android:textColor="@color/bonus_textview"
+       android:text="@string/google_service_no_support"
+       android:visibility="gone"/>
 
 </LinearLayout>

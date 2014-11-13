@@ -3,12 +3,15 @@ package com.zy.zhongyiandroid.ui.fragment;
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,7 @@ import com.zy.zhongyiandroid.data.shared.UserData;
 import com.zy.zhongyiandroid.ui.activity.MyBonusActivity;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
 import com.zy.zhongyiandroid.ui.activity.MyOrderActivity;
+import com.zy.zhongyiandroid.ui.activity.StoreMapActivity;
 import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog;
 import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog.OnLoginDialogClickListener;
 
@@ -46,10 +51,10 @@ public class SettingFragment extends BaseFragment {
 
 	// View mReBabyInfo;
 	// View mReSetting;
-	View mUpdate;
-	View mMyBonus;
-	View mIntroduce;
-	View mMyOrder;
+	RelativeLayout mUpdate;
+	RelativeLayout mMyBonus;
+	RelativeLayout mIntroduce;
+	 RelativeLayout mMyOrder;
 	/*
 	 * ImageView mImgBabyIcon; TextView mTvBabyName; TextView mTvBabyBirth;
 	 * 
@@ -115,11 +120,11 @@ public class SettingFragment extends BaseFragment {
 	 * 初始化UI
 	 */
 	public void initUI(View view) {
-		mUpdate = view.findViewById(R.id.Update);
-		mIntroduce = view.findViewById(R.id.MyIntroduce);
-		mMyBonus = view.findViewById(R.id.myBonus);
+		mUpdate = (RelativeLayout)view.findViewById(R.id.rlUpdate);
+		mIntroduce = (RelativeLayout)view.findViewById(R.id.rlAbout_us);
+		mMyBonus = (RelativeLayout)view.findViewById(R.id.rlBonus);
 		// mReFeedback = view.findViewById(R.id.reFeedback);
-		mMyOrder = view.findViewById(R.id.myOrder);
+		mMyOrder = (RelativeLayout)view.findViewById(R.id.rlOrder);
 		// mReSetting = view.findViewById(R.id.reSetting);
 		// mReBabyInfo.setOnClickListener(mOnClickListener);
 		mUpdate.setOnClickListener(mOnClickListener);
@@ -144,6 +149,45 @@ public class SettingFragment extends BaseFragment {
 					// TODO Auto-generated method stub
 					MyIntroduceActivity.startActivity(getActivity(),
 							getActivity().getString(R.string.tab_personal));
+				}
+			});
+			mHeader.setRight(getResources().getString(R.string.logout), new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+
+					// TODO Auto-generated method stub
+					AlertDialog alert = new AlertDialog.Builder(
+							getActivity()).create();
+					alert.setTitle(getResources().getString(R.string.logout_confirm));
+					alert.setMessage(userData.getUserAccount());
+					alert.setButton(DialogInterface.BUTTON_NEGATIVE, getResources().getString(R.string.cancle),
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO Auto-generated method stub
+									dialog.dismiss();
+								}
+							});
+					alert.setButton(DialogInterface.BUTTON_POSITIVE, getResources().getString(R.string.confirm),
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO Auto-generated method stub
+									dialog.dismiss();
+
+									userData.setisShowLogin(false);
+									toast(getResources().getString(R.string.logout_succeed));
+								}
+							});
+					alert.show();
+
+				
 				}
 			});
 		}
@@ -199,7 +243,7 @@ public class SettingFragment extends BaseFragment {
 			 * case R.id.reBabyInfo:
 			 * UserInfoActivity.startActivity(getActivity(),false); break;
 			 */
-			case R.id.myBonus:
+			case R.id.rlBonus:
 				if (!userData.getIsShowLogin()) {
 					UserLoginDialog dialog = new UserLoginDialog(getActivity(), R.style.MyDialog);
 					dialog.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
@@ -222,7 +266,7 @@ public class SettingFragment extends BaseFragment {
 			 * case R.id.reSetting:
 			 * SettingActivity.startActivity(getActivity()); break;
 			 */
-			case R.id.myOrder:
+			case R.id.rlOrder:
 				if (!userData.getIsShowLogin()) {
 					UserLoginDialog dialog = new UserLoginDialog(getActivity(), R.style.MyDialog);
 					dialog.setOnLoginDialogClickListener(new OnLoginDialogClickListener() {
@@ -241,7 +285,7 @@ public class SettingFragment extends BaseFragment {
 							.getString(R.string.tab_personal));
 				}
 				break;
-			case R.id.MyIntroduce:
+			case R.id.rlAbout_us:
 				MyIntroduceActivity.startActivity(getActivity(), getActivity()
 						.getString(R.string.tab_personal));
 				break;
@@ -249,7 +293,7 @@ public class SettingFragment extends BaseFragment {
 			 * case R.id.reFeedback:
 			 * FeedbackActivity.startActivity(getActivity()); break;
 			 */
-			case R.id.Update:
+			case R.id.rlUpdate:
 				/* UpdateVersionAcitvity.startActivity(getActivity()); */
 				break;
 			default:

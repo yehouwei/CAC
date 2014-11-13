@@ -7,10 +7,10 @@
     <!-- main tab小标题 -->
     <string name="tab_informantion">最新消息</string>
     <string name="message_detail">消息详情</string>
-    <string name="tab_selected_brand">精选品牌</string>
+    <string name="tab_selected_brand">精选产品</string>
     <string name="tab_location">店铺位置</string>
-    <string name="tab_personal">我的</string>
-    <string name="personal_bonus">我的积分</string>
+    <string name="tab_personal">为您服务</string>
+    <string name="personal_bonus">积分查询</string>
     <string name="personal_order">我的预约</string>
     <string name="version_update">版本更新</string>
     <string name="about_us">关于我们</string>
@@ -26,8 +26,23 @@
     <string name="request_fail">请求失败,请重试!</string>
     <string name="arrive_shop_time">到店时间:</string>
     <string name="deleted_successfully">删除成功</string>
+    <string name="order_successfully">预约成功</string>
     <string name="all">全部</string>
     <string name="search_hint">请输入要搜索的店名或者区域</string>
     <string name="cac">中艺</string>
+    <string name="google_service_no_support">您的手机未支持谷歌服务，请联系手机厂商</string>
+    <string name="confirm_to_call">确定要打电话给</string>
+    <string name="confirm">确定</string>
+    <string name="cancle">取消</string>
+    <string name="which_shop">欲到访门店</string>
+    <string name="what_event">到访事宜</string>
+    <string name="your_name">阁下姓名</string>
+    <string name="your_tel">阁下电话</string>
+    <string name="your_email">阁下邮箱</string>
+    <string name="choose_date">选择日期</string>
+    <string name="choose_time">选择时间</string>
+    <string name="logout">注销</string>
+    <string name="logout_confirm">你确定要注销?</string>
+    <string name="logout_succeed">注销成功</string>
 
 </resources>

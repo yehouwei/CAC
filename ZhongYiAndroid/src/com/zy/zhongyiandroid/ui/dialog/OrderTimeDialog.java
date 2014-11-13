@@ -80,8 +80,8 @@ public class OrderTimeDialog extends Dialog {
 				mCalendar.set(Calendar.HOUR, mTimePicker.getHour());
 				mCalendar.set(Calendar.MINUTE, mTimePicker.getMinute());
 				mCalendar.set(Calendar.SECOND,30);
-				String mtime=mCalendar.get(Calendar.HOUR)+":"+mCalendar.get(Calendar.MINUTE)+":"+mCalendar.get(Calendar.SECOND);
-				
+//				String mtime=mCalendar.get(Calendar.HOUR)+":"+mCalendar.get(Calendar.MINUTE)+":"+mCalendar.get(Calendar.SECOND);
+				String mtime=mTimePicker.getTime();
 				
 				mOnDialogClickListener.onClick(v, mCalendar.get(Calendar.HOUR),mCalendar.get(Calendar.MINUTE),mCalendar.get(Calendar.SECOND),mtime);
 			}

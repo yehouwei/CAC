@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="欲到访门店"
-        android:textColor="@color/app_text" />
+        android:text="@string/which_shop"
+        android:textColor="@color/listcolor" />
 
     <RelativeLayout
         android:id="@+id/rlShop"
@@ -52,8 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="到访事宜"
-        android:textColor="@color/app_text" />
+        android:text="@string/what_event"
+        android:textColor="@color/listcolor" />
 
     <RelativeLayout
         android:id="@+id/rlEvent"
@@ -102,7 +102,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_dialog_order_selector"
-            android:text="选择日期"
+            android:text="@string/choose_date"
             android:textColor="@color/app_text" />
 
         <Button
@@ -112,7 +112,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_dialog_order_selector"
-            android:text="选择时间"
+            android:text="@string/choose_time"
             android:textColor="@color/app_text" />
     </LinearLayout>
 
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_location_serachedit"
-        android:hint="阁下姓名:"
+        android:hint="@string/your_name"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textSize="15sp" >
@@ -130,11 +130,12 @@
 
     <EditText
        android:id="@+id/etPhone"
+               android:inputType="number"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_location_serachedit"
-        android:hint="阁下电话:"
+        android:hint="@string/your_tel"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/app_text"
@@ -143,11 +144,12 @@
 
     <EditText
         android:id="@+id/etEmail"
+        android:inputType="textEmailAddress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_location_serachedit"
-        android:hint="阁下邮箱:"
+        android:hint="@string/your_email"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/app_text"

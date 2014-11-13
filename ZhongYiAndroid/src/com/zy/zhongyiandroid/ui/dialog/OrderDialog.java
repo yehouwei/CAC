@@ -43,7 +43,7 @@ import com.zy.zhongyiandroid.ui.dialog.ShopListDialog.OnDialogClickListener;
 public class OrderDialog extends Dialog {
 	Context context;
 	OnOrderDialogClickListener mOnDialogClickListener;
-
+	OnListRefreshListener mOnListRefreshListener;
 	ImageView imgShopFliter;
 	TextView tvEvent;
 	TextView tvShop;
@@ -281,12 +281,16 @@ public class OrderDialog extends Dialog {
 						mOrder.setRemarks(tvEvent.getText().toString());
 						mOrder.setStatus("0");
 						mOrder.setUserId(1);
-						mOnDialogClickListener.onClick(v, mOrder);
+						dismiss();
+						post();
+
 						
 					}
 				} else {
 					delete(mOrder.getId());
 					dismiss();
+					//mOnDialogClickListener.onClick(v, mOrder);
+					
 
 				}
 				break;
@@ -295,7 +299,10 @@ public class OrderDialog extends Dialog {
 
 
 	};
+	public void setOnListRefreshListener(OnListRefreshListener listener) {
+		this.mOnListRefreshListener = listener;
 
+	}
 	public void setOnOrderDialogClickListener(
 			OnOrderDialogClickListener listener) {
 		mOnDialogClickListener = listener;
@@ -306,6 +313,10 @@ public class OrderDialog extends Dialog {
 		void onClick(View v, Order order);
 
 	}
+	public interface OnListRefreshListener {
+		void onRefresh();
+
+	}	
 
 	public void toast(String message) {
 		Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
@@ -329,10 +340,11 @@ public class OrderDialog extends Dialog {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
 							mOrderPost=(OrderPost)result;
-
-								toast(context.getResources().getString(R.string.deleted_successfully));
-							
-							
+							if(mOrderPost.getFlag()){
+							//toast(mOrderPost.getMessage());
+								toast(context.getResources().getString(R.string.order_successfully));
+								
+							}
 						}
 
 
@@ -357,8 +369,10 @@ public class OrderDialog extends Dialog {
 							&& (result != null)) {
 						OrderDelete mOrderDelete;
 						mOrderDelete=(OrderDelete)result;
-							
-							toast(mOrderDelete.getMessage());
+							if(mOrderDelete.getFlag()){
+								toast(context.getResources().getString(R.string.deleted_successfully));
+							}
+
 						}
 
 

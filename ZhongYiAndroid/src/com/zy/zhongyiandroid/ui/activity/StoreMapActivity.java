@@ -28,12 +28,14 @@ import com.zy.zhongyiandroid.ui.widget.Header;
 
 import android.R.integer;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentTransaction;
 import android.view.TextureView;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,6 +52,7 @@ public class StoreMapActivity extends BaseActivity {
 	TextView mtvTel;
 	TextView mtvAddress;
 	ImageButton mbtnCall;
+	TextView mtvErrorMap;
 	Store store;
 	OrderPost mOrderPost;
 	UserData userData = new UserData();
@@ -71,12 +74,16 @@ public class StoreMapActivity extends BaseActivity {
 		mtvTel = (TextView) this.findViewById(R.id.tvTel);
 		mtvAddress = (TextView) this.findViewById(R.id.tvAddress);
 		mbtnCall = (ImageButton) this.findViewById(R.id.btnCall);
+		mtvErrorMap=(TextView)findViewById(R.id.tvErrorMap);
 		mtvName.setText(store.getName());
 		mtvTel.setText(store.getPhone());
 		mtvAddress.setText(store.getAddress());
+		android.support.v4.app.FragmentManager fragmentManager =getSupportFragmentManager();
+		FragmentTransaction ft=fragmentManager.beginTransaction();
+		SupportMapFragment mSupportMapFragment=(SupportMapFragment) fragmentManager
+				.findFragmentById(R.id.map);
 
-		map = ((SupportMapFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.map)).getMap();
+		map = mSupportMapFragment.getMap();
 		NKUT = new LatLng(Double.parseDouble(store.getLongitude()),
 				Double.parseDouble(store.getGeography()));
 		if (map != null) {
@@ -86,8 +93,11 @@ public class StoreMapActivity extends BaseActivity {
 			// Move the camera instantly to NKUT with a zoom of 16.
 			map.moveCamera(CameraUpdateFactory.newLatLngZoom(NKUT, 16));
 		} else {
-			Toast.makeText(this, "您的手机未支持谷歌服务，请联系手机厂商", Toast.LENGTH_LONG)
-					.show();
+			ft.hide(mSupportMapFragment);
+			ft.commit();
+			mtvErrorMap.setVisibility(View.VISIBLE);
+/*			Toast.makeText(this, getResources().getString(R.string.google_service_no_support), Toast.LENGTH_LONG)
+					.show();*/
 		}
 		mbtnCall.setOnClickListener(new OnClickListener() {
 
@@ -96,9 +106,9 @@ public class StoreMapActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				AlertDialog alert = new AlertDialog.Builder(
 						StoreMapActivity.this).create();
-				alert.setTitle("确认要拨打电话");
+				alert.setTitle(getResources().getString(R.string.confirm_to_call));
 				alert.setMessage(store.getPhone());
-				alert.setButton(DialogInterface.BUTTON_NEGATIVE, "CANCLE",
+				alert.setButton(DialogInterface.BUTTON_NEGATIVE, getResources().getString(R.string.cancle),
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -108,7 +118,7 @@ public class StoreMapActivity extends BaseActivity {
 								dialog.dismiss();
 							}
 						});
-				alert.setButton(DialogInterface.BUTTON_POSITIVE, "Confirm",
+				alert.setButton(DialogInterface.BUTTON_POSITIVE, getResources().getString(R.string.confirm),
 						new DialogInterface.OnClickListener() {
 
 							@Override

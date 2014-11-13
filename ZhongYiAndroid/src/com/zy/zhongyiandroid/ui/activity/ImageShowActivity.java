@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -32,6 +33,7 @@ public class ImageShowActivity extends BaseActivity  {
 				.cacheOnDisc(true).considerExifParams(true)
 				.bitmapConfig(Bitmap.Config.RGB_565).build();
 		mZoomableImageView=(ZoomableImageView)findViewById(R.id.imgShow);
+
 		ImageLoader mImageLoader = ImageLoader.getInstance();
 		mImageLoader.displayImage(getIntent().getExtras().getString("img"),mZoomableImageView,options);
 	}

@@ -2,13 +2,11 @@ package com.zy.zhongyiandroid.ui.fragment;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.R.integer;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -19,17 +17,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.encore.libs.http.HttpConnectManager;
 import com.encore.libs.http.OnRequestListener;
-import com.encore.libs.http.Request;
+import com.google.android.gms.maps.MapFragment;
 import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.data.Api.HttpApi;
 import com.zy.zhongyiandroid.data.bean.MyApiResult;
@@ -69,6 +64,7 @@ public class LoacationFragment extends BaseFragment {
 	Store mStore;
 	Region region;
 	List<Store> mStores = new ArrayList<Store>();
+	List<Region> mRegions;
 
 	private int mPageNum = 1;
 
@@ -81,6 +77,8 @@ public class LoacationFragment extends BaseFragment {
 	 */
 
 	private Boolean isOne = true;
+
+	private Boolean isMapFirst = true;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -104,6 +102,7 @@ public class LoacationFragment extends BaseFragment {
 		super.onActivityCreated(savedInstanceState);
 		// initdata(storeName[0]);
 		request(0, null);
+		requestRegion();
 	}
 
 	public static void startActivity(Context c) {
@@ -143,7 +142,7 @@ public class LoacationFragment extends BaseFragment {
 		FragmentTransaction ft = getActivity().getSupportFragmentManager()
 				.beginTransaction();
 		mXlistviewFragment = new LocationListFragment(getActivity());
-		mMapFragment = new LocationMapFragment();
+		mMapFragment=new LocationMapFragment();
 		ft.add(R.id.vpLocation, mXlistviewFragment);
 		ft.add(R.id.vpLocation, mMapFragment);
 		ft.hide(mMapFragment).show(mXlistviewFragment);
@@ -157,15 +156,17 @@ public class LoacationFragment extends BaseFragment {
 	public void initHeader(View v) {
 		mHeader = (Header) v.findViewById(R.id.header);
 		mHeader.setTitle(R.string.tab_location);
-		mHeader.setIntroduceBtn(getActivity().getResources().getString(R.string.cac), new View.OnClickListener() {
+		mHeader.setIntroduceBtn(
+				getActivity().getResources().getString(R.string.cac),
+				new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				MyIntroduceActivity.startActivity(getActivity(), getActivity()
-						.getString(R.string.tab_location));
-			}
-		});
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						MyIntroduceActivity.startActivity(getActivity(),
+								getActivity().getString(R.string.tab_location));
+					}
+				});
 		mHeader.setBtnRight1(R.drawable.icon_location_header_switch,
 				new View.OnClickListener() {
 
@@ -175,8 +176,11 @@ public class LoacationFragment extends BaseFragment {
 						FragmentTransaction ft = getActivity()
 								.getSupportFragmentManager().beginTransaction();
 						if (isOne) {
+
 							ft.hide(mXlistviewFragment).show(mMapFragment);
+
 							isOne = false;
+
 						} else {
 							ft.hide(mMapFragment).show(mXlistviewFragment);
 
@@ -193,11 +197,11 @@ public class LoacationFragment extends BaseFragment {
 			return;
 		}
 
-		isRequesEnd = false; // 改变正在请求的标识
-		/*
-		 * if ((mStores == null) || (mStores.size() == 0)) {
-		 * setLoadingViewVisible(View.VISIBLE, mListView); }
-		 */
+/*		isRequesEnd = false; // 改变正在请求的标识
+		
+		  if ((mStores == null) || (mStores.size() == 0)) {
+		  setLoadingViewVisible(View.VISIBLE, mXlistviewFragment); }*/
+		 
 		HttpApi.getStores(getActivity(), mPageNum, mPageSize, regionId,
 				keyWord, mOnRequestListener);
 	}
@@ -253,7 +257,7 @@ public class LoacationFragment extends BaseFragment {
 				switch (touchedView.getId()) {
 				case R.id.spinnerview:
 					RegionDialog mRegionDialog = new RegionDialog(
-							getActivity(), R.style.MyDialog);
+							getActivity(), R.style.MyDialog,mRegions);
 					mRegionDialog
 							.setOnDialogClickListener(new OnDialogClickListener() {
 
@@ -284,40 +288,76 @@ public class LoacationFragment extends BaseFragment {
 
 			} else {
 				// initdata(search);
-	            try {
-					String strUTF8 = URLDecoder.decode(search, "UTF-8");
+/*				try {
+					String strUTF8 = URLEncoder.encode(search, "UTF-8");
 					request(0, strUTF8);
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}  
-				
+				}*/
+				request(0, getUTF8XMLString(searchEditText.getText().toString()));
+
 			}
 
 		}
 	};
 
-	/*
-	 * private void initdata(String regEx) { mStores.clear(); Boolean bm;
-	 * Pattern pat = Pattern.compile(regEx); for(int
-	 * i=0;i<storeName.length;i++){ Matcher mat = pat.matcher(storeName[i]);
-	 * bm=mat.find(); if (bm) { mStore=new Store();
-	 * mStore.setAddress(storeAdd[i]); mStore.setCode(1);
-	 * mStore.setGeography(1); mStore.setId(1); mStore.setLongitude(1);
-	 * mStore.setName(storeName[i]); mStore.setPhone("55555");
-	 * mStore.setShopDescribe("55555"); mStores.add(mStore);
-	 * 
-	 * } } // TODO Auto-generated method stub
-	 * if(mStores==null&&mStores.size()==0){ Toast.makeText(getActivity(),
-	 * "无法找到您所要搜寻的地方", Toast.LENGTH_SHORT).show(); }else{
-	 * mLocationAdapater.setDatas(mStores);
-	 * mLocationAdapater.notifyDataSetChanged(); } }
-	 * 
-	 * public static String[] storeName = { "深圳万象城店", "广州太古汇店", "杭州万象城店",
-	 * "上海南京西路店", "北京金融街店", "北京国贸店" }; public static String[] storeAdd = {
-	 * "深圳市罗湖区宝安南路华润万象城二期S150&S250", "广东省广州市天河路太古汇商场L210号商铺",
-	 * "杭州市江干区四季青街道富春路701号", "上海南京西路", "北京市朝阳区建国门外大街一号国贸商城地上二层3L210",
-	 * "北京市西城区金城坊街2号金融街购物中心L222-L223号铺" };
-	 */
+	public static String getUTF8XMLString(String xml) {
+		// A StringBuffer Object
+		StringBuffer sb = new StringBuffer();
+		sb.append(xml);
+		String xmString = "";
+		String xmlUTF8 = "";
+		try {
+			xmString = new String(sb.toString().getBytes("UTF-8"));
+			xmlUTF8 = URLEncoder.encode(xmString, "UTF-8");
+			System.out.println("utf-8 编码：" + xmlUTF8);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// return to String Formed
+		return xmlUTF8;
+	} 
+	public void requestRegion() {
+/*		if (!isRequesEnd) {
+			return;
+		}
+
+		isRequesEnd = false; // 改变正在请求的标识
+*/		/*
+		 * if ((mStores == null) || (mStores.size() == 0)) {
+		 * setLoadingViewVisible(View.VISIBLE, mListView); }
+		 */
+		HttpApi.getRegion(getActivity(), mRegionOnRequestListener);
+	}
+
+	public OnRequestListener mRegionOnRequestListener = new OnRequestListener() {
+
+		@Override
+		public void onResponse(String url, final int state,
+				final Object result, int type) {
+			// mIsFirstLoad = false;
+			isRequesEnd = true;
+			mHandler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					if ((state == HttpConnectManager.STATE_SUC)
+							&& (result != null)) {
+
+						List<Region> regions = (List<Region>) result;
+
+						if (regions != null && regions.size() != 0) {
+							mRegions=regions;
+
+
+						}
+					}
+				}
+			});
+
+		}
+	};
 
 }

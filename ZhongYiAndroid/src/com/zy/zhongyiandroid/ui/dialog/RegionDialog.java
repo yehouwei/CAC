@@ -49,9 +49,10 @@ public class RegionDialog extends Dialog {
 
 	private boolean isRequesEnd = true;
 
-	public RegionDialog(Context context, int theme) {
+	public RegionDialog(Context context, int theme,List<Region> regions) {
 		super(context, theme);
 		this.context = context;
+		this.mRegions=regions;
 		// TODO Auto-generated constructor stub
 		setContentView(R.layout.dialog_listview);
 		initUI();
@@ -84,6 +85,8 @@ public class RegionDialog extends Dialog {
 		 * R.layout.adapter_dialog_simplelist, list);
 		 */
 		mDialogAdapter = new RegionDialogAdapter(context);
+		mDialogAdapter.setDatas(mRegions);
+		mDialogAdapter.notifyDataSetChanged();
 		mListView.setAdapter(mDialogAdapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -97,20 +100,20 @@ public class RegionDialog extends Dialog {
 			}
 
 		});
-		request();
+		//request();
 
 	}
 
-	public void request() {
+/*	public void request() {
 		if (!isRequesEnd) {
 			return;
 		}
 
 		isRequesEnd = false; // 改变正在请求的标识
-		/*
+		
 		 * if ((mStores == null) || (mStores.size() == 0)) {
 		 * setLoadingViewVisible(View.VISIBLE, mListView); }
-		 */
+		 
 		HttpApi.getRegion(context, mOnRequestListener);
 	}
 
@@ -141,7 +144,7 @@ public class RegionDialog extends Dialog {
 			});
 
 		}
-	};
+	};*/
 
 	public void setOnDialogClickListener(OnDialogClickListener listener) {
 		mOnDialogClickListener = listener;
@@ -152,6 +155,6 @@ public class RegionDialog extends Dialog {
 		void onClick(View v, Region region);
 	}
 
-	Handler mHandler = new Handler();
+	//Handler mHandler = new Handler();
 
 }

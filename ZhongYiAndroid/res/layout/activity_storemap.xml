@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg"
-    android:orientation="vertical" >
+    android:background="@drawable/main_bg">
 
     <com.zy.zhongyiandroid.ui.widget.Header
         android:id="@+id/header"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/header"/>
     <RelativeLayout
+        android:id="@+id/rlStoreInfo"
+		android:layout_below="@id/header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_list_information" >
@@ -66,14 +68,25 @@
                 android:textColor="@color/app_text"
                 android:textSize="@dimen/map_info_textsize" />
         </LinearLayout>
-
     </RelativeLayout>
 
     <fragment
         android:id="@+id/map"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@id/header"
+        android:layout_below="@id/rlStoreInfo"
         class="com.google.android.gms.maps.SupportMapFragment" />
+    <TextView 
+        android:id="@+id/tvErrorMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlStoreInfo"
+		android:layout_marginTop="100dp"
+		android:layout_centerHorizontal="true"
+		android:textSize="20sp"
+		android:textColor="@color/bonus_textview"
+       android:text="@string/google_service_no_support"
+       android:visibility="gone"/>
 
-</LinearLayout>
+
+</RelativeLayout>

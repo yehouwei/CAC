@@ -129,9 +129,20 @@ public class OrderListFragment extends BaseFragment {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				OrderDialog mOrderDialog=new OrderDialog(context, R.style.MyDialog, mOrders.get(position-1));
+				
+				mOrderDialog.setOnListRefreshListener(new OrderDialog.OnListRefreshListener() {
+					
+					@Override
+					public void onRefresh() {
+						// TODO Auto-generated method stub
+						//mIsFirstLoad=true;
+						request();
+					}
+				});
+					
 				mOrderDialog.showDialog();
-				//MessagmeDeatailAcitvity.startActivity(getActivity(), mMessages.get(position-1).getId());
-			}
+			}	
+					
 		});
 		
 		initLoadingInfo(view);
@@ -202,7 +213,7 @@ public class OrderListFragment extends BaseFragment {
 
 						} else {
 							mListView.setPullLoadEnable(false);
-							if ((mPageNum == 1) && ((mOrders == null) || (mOrders.size() == 0))) {
+							if ((mPageNum == 1) && ((orders == null) || (orders.size() == 0))) {
 								setNotDataVisible(View.VISIBLE, mListView);
 							}
 						}
@@ -235,7 +246,7 @@ public class OrderListFragment extends BaseFragment {
 
 		if (orders == null) {// 第一次进入先读取缓存
 			// 获取缓存数据
-			if (mPageNum == 1) {
+			if (mPageNum == 1&&mIsFirstLoad) {
 				mOrders = NetCache.readCache(ServerUrl.URL_ORDER);
 			}
 			if (mIsFirstLoad||mOrders==null||mOrders.size()==0) {
@@ -296,6 +307,7 @@ public class OrderListFragment extends BaseFragment {
 						onStopLoad();
 					}
 				}, 2000);
+				mOrders.clear();
 
 				request();
 

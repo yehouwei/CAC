@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-
     android:background="@drawable/bg_main"
     android:contentDescription="@string/personal_order"
     android:orientation="vertical" >
@@ -10,231 +9,218 @@
     <com.zy.zhongyiandroid.ui.widget.Header
         android:id="@+id/header"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" 
-               />
-      
-    
-      <ImageView
-          android:id="@+id/imagetoppic"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:contentDescription="@drawable/icon_mytop_pic"
-          android:background="@drawable/icon_mytop_pic"
-          android:scaleType="center" />
-    
-	<ScrollView
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical" >
+        android:layout_height="wrap_content" />
 
-	   <LinearLayout
-	       android:layout_width="match_parent"
-	       android:layout_height="205dp"
-	       android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/imagetoppic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_mytop_pic"
+        android:contentDescription="@drawable/icon_mytop_pic"
+        android:scaleType="center" />
 
-	       <RelativeLayout
-	           android:id="@+id/bg_list_my"
-	           android:layout_width="wrap_content"
-	           android:layout_height="match_parent"
-	           android:layout_gravity="center"
-	           android:layout_marginBottom="5dp"
-	           android:layout_marginTop="10dp"
-	           android:background="@drawable/bg_list_my" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-	           <ImageView
-	               android:id="@+id/imgMyorder"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:layout_marginLeft="40dp"
-	               android:background="@drawable/icon_myorder"
-	               android:contentDescription="@string/personal_order" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="205dp"
+            android:orientation="vertical" >
 
-	            <ImageView
-	                android:id="@+id/myOrder"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:contentDescription="@drawable/bg_list_order"
-	                android:layout_marginLeft="40dp"
-	                android:layout_toRightOf="@+id/imgMyorder"
-	                android:background="@drawable/bg_list_order"                                                          
-                                                           />
+            <RelativeLayout
+                android:id="@+id/rlAbout_us"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_list_my" >
 
-	            <TextView
-	                android:id="@+id/myorder"
-	                style="@style/user_textview"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerHorizontal="true"
-	                android:layout_centerVertical="true"
-	                android:text="@string/personal_order"
-	                android:textColor="@color/sbc_list_item" />
-	            
-	            <ImageView
-	               android:id="@+id/myordernext"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:contentDescription="@drawable/icon_myorder_next"
-	               android:layout_marginLeft="290dp"      
-	                android:background="@drawable/icon_myorder_next" />
+                <ImageView
+                    android:id="@+id/imgMyorderaboutus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/icon_about_us"
+                    android:contentDescription="@string/personal_order" />
 
-	       </RelativeLayout>
+                <ImageView
+                    android:id="@+id/MyIntroduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/imgMyorderaboutus"
+                    android:background="@drawable/bg_list_order"
+                    android:contentDescription="@drawable/bg_list_order" />
 
-	       <RelativeLayout
-	           android:id="@+id/myOrderbonus"
-	           android:layout_width="wrap_content"
-	           android:layout_height="match_parent"
-	           android:layout_gravity="center"
-	           android:layout_marginBottom="5dp"
-	           android:background="@drawable/bg_list_my" >
+                <TextView
+                    android:id="@+id/myorderaboutus"
+                    style="@style/user_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/about_us"
+                    android:textColor="@color/sbc_list_item" />
 
-	           <ImageView
-	               android:id="@+id/imgMybonus"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:layout_marginLeft="40dp"
-	               android:background="@drawable/icon_personal_bonus"
-	               android:contentDescription="@string/personal_order" />
+                <ImageView
+                    android:id="@+id/myorderaboutusnext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="290dp"
+                    android:background="@drawable/icon_myorder_next"
+                    android:contentDescription="@drawable/icon_myorder_next" />
+            </RelativeLayout>
 
-	            <ImageView
-	                android:id="@+id/myBonus"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:contentDescription="@drawable/bg_list_order"
-	                android:layout_marginLeft="40dp"
-	                android:layout_toRightOf="@+id/imgMybonus"
-	                android:background="@drawable/bg_list_order"                                                          
-                                                           />
+            <RelativeLayout
+                android:id="@+id/rlOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_list_my" >
 
-	            <TextView
-	                android:id="@+id/myorderbonus"
-	                style="@style/user_textview"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerHorizontal="true"
-	                android:layout_centerVertical="true"
-	                android:text="@string/personal_bonus"
-	                android:textColor="@color/sbc_list_item" />
-	            
-	            <ImageView
-	              
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:contentDescription="@drawable/icon_myorder_next"
-	               android:layout_marginLeft="290dp"      
-	                android:background="@drawable/icon_myorder_next" />
+                <ImageView
+                    android:id="@+id/imgMyorder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/icon_myorder"
+                    android:contentDescription="@string/personal_order" />
 
-	       </RelativeLayout>
+                <ImageView
+                    android:id="@+id/myOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/imgMyorder"
+                    android:background="@drawable/bg_list_order"
+                    android:contentDescription="@drawable/bg_list_order" />
 
-	       <RelativeLayout
-	           android:id="@+id/myOrderupdate"
-	           android:layout_width="wrap_content"
-	           android:layout_height="match_parent"
-	           android:layout_gravity="center"
-	           android:layout_marginBottom="5dp"
-	           android:background="@drawable/bg_list_my" >
+                <TextView
+                    android:id="@+id/myorder"
+                    style="@style/user_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/personal_order"
+                    android:textColor="@color/sbc_list_item" />
 
-	           <ImageView
-	               android:id="@+id/imgMyorderupdate"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:layout_marginLeft="40dp"
-	               android:background="@drawable/icon_version_update"
-	               android:contentDescription="@string/version_update" />
+                <ImageView
+                    android:id="@+id/myordernext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="290dp"
+                    android:background="@drawable/icon_myorder_next"
+                    android:contentDescription="@drawable/icon_myorder_next" />
+            </RelativeLayout>
 
-	            <ImageView
-	                android:id="@+id/Update"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:contentDescription="@drawable/bg_list_order"
-	                android:layout_marginLeft="40dp"
-	                android:layout_toRightOf="@+id/imgMyorderupdate"
-	                android:background="@drawable/bg_list_order"                                                          
-                                                           />
+            <RelativeLayout
+                android:id="@+id/rlBonus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_list_my" >
 
-	            <TextView
-	                android:id="@+id/myorderupdatetext"
-	                style="@style/user_textview"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerHorizontal="true"
-	                android:layout_centerVertical="true"
-	                android:text="@string/version_update"
-	                android:textColor="@color/sbc_list_item" />
-	            
-	            <ImageView
-	               android:id="@+id/myorderupdatenext"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:contentDescription="@drawable/icon_myorder_next"
-	               android:layout_marginLeft="290dp"      
-	               android:background="@drawable/icon_myorder_next" />
+                <ImageView
+                    android:id="@+id/imgMybonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/icon_personal_bonus"
+                    android:contentDescription="@string/personal_order" />
 
-	       </RelativeLayout>
+                <ImageView
+                    android:id="@+id/myBonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/imgMybonus"
+                    android:background="@drawable/bg_list_order"
+                    android:contentDescription="@drawable/bg_list_order" />
 
-	       <RelativeLayout
-	           android:id="@+id/myOrderaboutus"
-	           android:layout_width="wrap_content"
-	           android:layout_height="match_parent"
-	           android:layout_gravity="center"
-	           android:background="@drawable/bg_list_my" >
+                <TextView
+                    android:id="@+id/myorderbonus"
+                    style="@style/user_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/personal_bonus"
+                    android:textColor="@color/sbc_list_item" />
 
-	           <ImageView
-	               android:id="@+id/imgMyorderaboutus"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:layout_marginLeft="40dp"
-	               android:background="@drawable/icon_about_us"
-	               android:contentDescription="@string/personal_order" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="290dp"
+                    android:background="@drawable/icon_myorder_next"
+                    android:contentDescription="@drawable/icon_myorder_next" />
+            </RelativeLayout>
 
-	            <ImageView
-	                android:id="@+id/MyIntroduce"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:contentDescription="@drawable/bg_list_order"
-	                android:layout_marginLeft="40dp"
-	                android:layout_toRightOf="@+id/imgMyorderaboutus"
-	                android:background="@drawable/bg_list_order"                                                          
-                                                           />
+            <RelativeLayout
+                android:id="@+id/rlUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_list_my" >
 
-	            <TextView
-	                android:id="@+id/myorderaboutus"
-	                style="@style/user_textview"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerHorizontal="true"
-	                android:layout_centerVertical="true"
-	                android:text="@string/about_us"
-	                android:textColor="@color/sbc_list_item" />
-	            
-	            <ImageView
-	               android:id="@+id/myorderaboutusnext"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:layout_centerVertical="true"
-	               android:contentDescription="@drawable/icon_myorder_next"
-	               android:layout_marginLeft="290dp"      
-	               android:background="@drawable/icon_myorder_next"  />   
-	           </RelativeLayout >
-    
+                <ImageView
+                    android:id="@+id/imgMyorderupdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:background="@drawable/icon_version_update"
+                    android:contentDescription="@string/version_update" />
 
-	   </LinearLayout>
+                <ImageView
+                    android:id="@+id/Update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/imgMyorderupdate"
+                    android:background="@drawable/bg_list_order"
+                    android:contentDescription="@drawable/bg_list_order" />
 
+                <TextView
+                    android:id="@+id/myorderupdatetext"
+                    style="@style/user_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/version_update"
+                    android:textColor="@color/sbc_list_item" />
+
+                <ImageView
+                    android:id="@+id/myorderupdatenext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="290dp"
+                    android:background="@drawable/icon_myorder_next"
+                    android:contentDescription="@drawable/icon_myorder_next" />
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
-	
 </LinearLayout>
