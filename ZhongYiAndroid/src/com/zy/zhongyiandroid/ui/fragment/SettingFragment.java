@@ -137,7 +137,7 @@ public class SettingFragment extends BaseFragment {
 		Header mHeader = (Header) view.findViewById(R.id.header);
 		if (mHeader != null) {
 			mHeader.setTitle(getActivity().getString(R.string.tab_personal));
-			mHeader.setIntroduceBtn("中艺", new View.OnClickListener() {
+			mHeader.setIntroduceBtn(getActivity().getResources().getString(R.string.cac), new View.OnClickListener() {
 
 				@Override
 				public void onClick(View v) {

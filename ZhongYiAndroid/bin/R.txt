@@ -680,8 +680,10 @@ int menu main 0x7f0c0000
 int string about_us 0x7f060038
 int string accept 0x7f060002
 int string action_settings 0x7f06002e
+int string all 0x7f060045
 int string app_name 0x7f060027
 int string arrive_shop_time 0x7f060043
+int string cac 0x7f060047
 int string common_android_wear_notification_needs_update_text 0x7f060009
 int string common_android_wear_update_text 0x7f060016
 int string common_android_wear_update_title 0x7f060014
@@ -731,6 +733,7 @@ int string pull_to_refresh_pull_label 0x7f060028
 int string pull_to_refresh_refreshing_label 0x7f06002a
 int string pull_to_refresh_release_label 0x7f060029
 int string request_fail 0x7f060042
+int string search_hint 0x7f060046
 int string store_picture_message 0x7f060001
 int string store_picture_title 0x7f060000
 int string tab_informantion 0x7f060030

@@ -26,5 +26,8 @@
     <string name="request_fail">请求失败,请重试!</string>
     <string name="arrive_shop_time">到店时间:</string>
     <string name="deleted_successfully">删除成功</string>
+    <string name="all">全部</string>
+    <string name="search_hint">请输入要搜索的店名或者区域</string>
+    <string name="cac">中艺</string>
 
 </resources>

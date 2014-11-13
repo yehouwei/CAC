@@ -31,9 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:textColor="@color/app_text"
-                android:textSize="15sp" />
+                android:textSize="15sp" 
+                android:text="@string/all"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -61,7 +62,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="9"
                 android:background="@null"
-                android:hint="请输入要搜索的店名或者区域"
+                android:hint="@string/search_hint"
                 android:singleLine="true"
                 android:textColor="@color/app_text"
                 android:textSize="15sp" />

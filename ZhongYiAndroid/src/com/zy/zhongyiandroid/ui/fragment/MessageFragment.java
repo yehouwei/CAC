@@ -129,7 +129,7 @@ public class MessageFragment extends BaseFragment {
 	public void initHeader(View v){
 		mHeader = (Header) v.findViewById(R.id.header);
 		mHeader.setTitle(R.string.tab_informantion);
-		mHeader.setIntroduceBtn("中艺", new View.OnClickListener() {
+		mHeader.setIntroduceBtn(getActivity().getResources().getString(R.string.cac), new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

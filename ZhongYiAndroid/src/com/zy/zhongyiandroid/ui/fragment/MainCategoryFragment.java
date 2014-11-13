@@ -186,7 +186,7 @@ public class MainCategoryFragment extends BaseFragment {
 	public void initHeader(View v) {
 		mHeader = (Header) v.findViewById(R.id.header);
 		mHeader.setTitle(R.string.tab_selected_brand);
-		mHeader.setIntroduceBtn("中艺", new View.OnClickListener() {
+		mHeader.setIntroduceBtn(getActivity().getResources().getString(R.string.cac), new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

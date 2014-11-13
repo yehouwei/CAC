@@ -1207,8 +1207,10 @@ containing a value of this type.
         public static final int about_us=0x7f060038;
         public static final int accept=0x7f060002;
         public static final int action_settings=0x7f06002e;
+        public static final int all=0x7f060045;
         public static final int app_name=0x7f060027;
         public static final int arrive_shop_time=0x7f060043;
+        public static final int cac=0x7f060047;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f060009;
@@ -1332,6 +1334,7 @@ containing a value of this type.
         public static final int pull_to_refresh_refreshing_label=0x7f06002a;
         public static final int pull_to_refresh_release_label=0x7f060029;
         public static final int request_fail=0x7f060042;
+        public static final int search_hint=0x7f060046;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         /**  main tab小标题 

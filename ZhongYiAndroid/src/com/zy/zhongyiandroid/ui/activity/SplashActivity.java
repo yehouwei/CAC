@@ -18,8 +18,9 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
-
 
 /**
  * 
@@ -28,17 +29,14 @@ import android.widget.ImageView;
  */
 public class SplashActivity extends BaseActivity {
 
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_splash);
 
+		setContentView(R.layout.activity_splash);
 
 		toMainActivity();
 	}
-
 
 	private Handler mHandler = new Handler();
 
@@ -46,7 +44,6 @@ public class SplashActivity extends BaseActivity {
 	 * 跳转到主页面
 	 */
 	public void toMainActivity() {
-
 
 		mHandler.postDelayed(new Runnable() {
 
@@ -59,7 +56,4 @@ public class SplashActivity extends BaseActivity {
 
 	}
 
-
-
-	
 }
