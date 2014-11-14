@@ -136,7 +136,9 @@ public class OrderListFragment extends BaseFragment {
 					public void onRefresh() {
 						// TODO Auto-generated method stub
 						//mIsFirstLoad=true;
-						initData(null);
+//						mOrders.clear();
+						request();
+						//initData(null);
 					}
 				});
 					
@@ -214,6 +216,7 @@ public class OrderListFragment extends BaseFragment {
 						} else {
 							mListView.setPullLoadEnable(false);
 							if ((mPageNum == 1) && ((orders == null) || (orders.size() == 0))) {
+								mOrders.clear();
 								setNotDataVisible(View.VISIBLE, mListView);
 							}
 						}

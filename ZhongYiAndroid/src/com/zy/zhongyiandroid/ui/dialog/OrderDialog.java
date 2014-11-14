@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android.R.integer;
 import android.app.Dialog;
@@ -99,10 +101,10 @@ public class OrderDialog extends Dialog {
 		// mTimePicker.setIs24Hour(false);
 		show();
 	}
-/*
-	public void setShopData(String[] stores) {
-		this.stores = stores;
-	}*/
+
+	/*
+	 * public void setShopData(String[] stores) { this.stores = stores; }
+	 */
 
 	private void initUI() {
 
@@ -133,8 +135,9 @@ public class OrderDialog extends Dialog {
 		if (isNew) {
 			tvShop.setText(stores.get(0).getName());
 			mOrder.setShopName(stores.get(0).getName());
-			mOrder.setShopId(stores.get(0).getId());		
-			tvEvent.setText(context.getResources().getStringArray(R.array.event)[0]);
+			mOrder.setShopId(stores.get(0).getId());
+			tvEvent.setText(context.getResources()
+					.getStringArray(R.array.event)[0]);
 			rlShop.setOnTouchListener(onTouchListener);
 			rlEvent.setOnTouchListener(onTouchListener);
 			btnDate.setOnClickListener(clickListener);
@@ -175,10 +178,10 @@ public class OrderDialog extends Dialog {
 			switch (v.getId()) {
 			case R.id.rlShop:
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					final ShopListDialog mlistDialog = new ShopListDialog(context,
-							R.style.MyDialog);
-					mlistDialog.
-							setOnDialogClickListener(new OnDialogClickListener() {
+					final ShopListDialog mlistDialog = new ShopListDialog(
+							context, R.style.MyDialog);
+					mlistDialog
+							.setOnDialogClickListener(new OnDialogClickListener() {
 
 								@Override
 								public void onClick(View v, Store store) {
@@ -254,8 +257,8 @@ public class OrderDialog extends Dialog {
 						.setOnTimeDialogClickListener(new OnTimeDialogClickListener() {
 
 							@Override
-							public void onClick(View v, int hour, int minute,int second,
-									String time) {
+							public void onClick(View v, int hour, int minute,
+									int second, String time) {
 								// TODO Auto-generated method stub
 								btnTime.setText(time);
 								mtime = time;
@@ -272,8 +275,10 @@ public class OrderDialog extends Dialog {
 							|| etName.getText().toString().equals("")
 							|| etPhone.getText().toString().equals("")) {
 						toast("请输入完整的信息");
+					} else if (!isEmail(etEmail.getText().toString())) {
+						toast("请输入正确的邮箱格式");
 					} else {
-						mOrder.setArrageDateTime(mdate +" "+ mtime);
+						mOrder.setArrageDateTime(mdate + " " + mtime);
 						mOrder.setAppellation(etName.getText().toString());
 						mOrder.setPhone(etPhone.getText().toString());
 						mOrder.setEmail(etEmail.getText().toString());
@@ -284,25 +289,32 @@ public class OrderDialog extends Dialog {
 						dismiss();
 						post();
 
-						
 					}
 				} else {
 					delete(mOrder.getId());
 					dismiss();
-					//mOnDialogClickListener.onClick(v, mOrder);
-					
+					// mOnDialogClickListener.onClick(v, mOrder);
 
 				}
 				break;
 			}
 		}
 
-
 	};
+
+	public boolean isEmail(String email) {
+		String str = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+		Pattern p = Pattern.compile(str);
+		Matcher m = p.matcher(email);
+
+		return m.matches();
+	}
+
 	public void setOnListRefreshListener(OnListRefreshListener listener) {
 		this.mOnListRefreshListener = listener;
 
 	}
+
 	public void setOnOrderDialogClickListener(
 			OnOrderDialogClickListener listener) {
 		mOnDialogClickListener = listener;
@@ -313,21 +325,23 @@ public class OrderDialog extends Dialog {
 		void onClick(View v, Order order);
 
 	}
+
 	public interface OnListRefreshListener {
 		void onRefresh();
 
-	}	
+	}
 
 	public void toast(String message) {
 		Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
 	}
+
 	private void post() {
 		// TODO Auto-generated method stub
-		HttpApi.order(context, mOrder, 
-				mOnRequestListener);
+		HttpApi.order(context, mOrder, mOnRequestListener);
 	}
-	Handler mHandler=new Handler();
+
+	Handler mHandler = new Handler();
 	public OnRequestListener mOnRequestListener = new OnRequestListener() {
 
 		@Override
@@ -339,23 +353,25 @@ public class OrderDialog extends Dialog {
 				public void run() {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
-							mOrderPost=(OrderPost)result;
-							if(mOrderPost.getFlag()){
-							//toast(mOrderPost.getMessage());
-								toast(context.getResources().getString(R.string.order_successfully));
-								
-							}
+						mOrderPost = (OrderPost) result;
+						if (mOrderPost.getFlag()) {
+							// toast(mOrderPost.getMessage());
+							toast(context.getResources().getString(
+									R.string.order_successfully));
+
 						}
-
-
 					}
-				});
-			}
+
+				}
+			});
+		}
 	};
+
 	private void delete(int id) {
 		// TODO Auto-generated method stub
-		HttpApi.OrderDelete(context, id,mDeleteOnRequestListener);
+		HttpApi.OrderDelete(context, id, mDeleteOnRequestListener);
 	}
+
 	public OnRequestListener mDeleteOnRequestListener = new OnRequestListener() {
 
 		@Override
@@ -368,17 +384,18 @@ public class OrderDialog extends Dialog {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
 						OrderDelete mOrderDelete;
-						mOrderDelete=(OrderDelete)result;
-							if(mOrderDelete.getFlag()){
-								toast(context.getResources().getString(R.string.deleted_successfully));
-							}
-
+						mOrderDelete = (OrderDelete) result;
+						if (mOrderDelete.getFlag()) {
+							toast(context.getResources().getString(
+									R.string.deleted_successfully));
+							mOnListRefreshListener.onRefresh();
 						}
 
-
 					}
-				});
-			}
-	};		
-	
+
+				}
+			});
+		}
+	};
+
 }

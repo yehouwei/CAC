@@ -97,7 +97,7 @@ public class OrderListAdapter extends BaseAdapter {
 			try {
 				dateArrange = sdf.parse(order.getArrageDateTime());
 				if(dateArrange.before(new Date())){
-					mtvArrangeTime.setTextColor(context.getResources().getColor(R.color.bonus_point));
+					//mtvArrangeTime.setTextColor(context.getResources().getColor(R.color.bonus_point));
 					mimgOrderPassed.setVisibility(View.VISIBLE);
 				}
 			} catch (ParseException e) {

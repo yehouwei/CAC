@@ -47,7 +47,7 @@ import com.zy.zhongyiandroid.ui.widget.Header;
  */
 public class SettingFragment extends BaseFragment {
 
-	public final static String TAG = "UserFragment";
+	public final static String TAG = "SettingFragment";
 
 	// View mReBabyInfo;
 	// View mReSetting;

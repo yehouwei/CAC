@@ -49,7 +49,7 @@ public class MessageFragment extends BaseFragment {
 	// 请求是否已经结束
 	private boolean isRequesEnd = true;
 
-	public final static String TAG = "InfoFragment";
+	public final static String TAG = "MessageFragment";
 
 	private int mPageNum = 1;
 

@@ -27,9 +27,11 @@ public class LocationAdapater extends BaseAdapter {
 	DisplayImageOptions options;
 	private List<Store> mList;
 	LayoutInflater mLayoutInflater;
+	Context context;
 
 	public LocationAdapater(Context context) {
 		// TODO Auto-generated constructor stub
+		this.context=context;
 		mLayoutInflater = LayoutInflater.from(context);
 		options = new DisplayImageOptions.Builder().cacheInMemory(true)
 				.cacheOnDisc(true).considerExifParams(true)
@@ -87,8 +89,8 @@ public class LocationAdapater extends BaseAdapter {
 
 		public HolderView(View view) {
 			// TODO Auto-generated constructor stub
-			mImageView = (ImageView) view.findViewById(R.id.imageView);
-			mTittleTextView = (TextView) view.findViewById(R.id.InfoTittle);
+			mImageView = (ImageView) view.findViewById(R.id.imgStore);
+			mTittleTextView = (TextView) view.findViewById(R.id.tvTittle);
 			mStoreTelTextView = (TextView) view.findViewById(R.id.storeTel);
 			mStoreGeographTextView = (TextView) view
 					.findViewById(R.id.storeGeography);
@@ -97,11 +99,11 @@ public class LocationAdapater extends BaseAdapter {
 
 		public void setData(Store store) {
 
-			mImageView.setBackgroundResource(R.drawable.tab_personal);
+			//mImageView.setBackgroundResource(R.drawable.tab_personal);
 			mTittleTextView.setText(store.getName());
-			mStoreTelTextView.setText("Tel: " + store.getPhone());
+			mStoreTelTextView.setText(context.getResources().getString(R.string.shop_tel) + store.getPhone());
 			mStoreGeographTextView.setText("1.5km");
-			mStoreAddTextView.setText("地址:" + store.getAddress());
+			mStoreAddTextView.setText( context.getResources().getString(R.string.shop_address)+ store.getAddress());
 
 			mImageLoader.displayImage(store.getImage(), mImageView, options);
 		}

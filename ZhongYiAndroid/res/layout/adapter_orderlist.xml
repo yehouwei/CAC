@@ -16,70 +16,71 @@
             android:layout_height="110dp"
             android:background="@drawable/bg_sort_default"
             android:scaleType="fitXY" />
-        <FrameLayout 
+
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/imgShop"
+            android:layout_alignBottom="@id/imgShop"
             android:layout_alignTop="@id/imgShop"
-            android:layout_toRightOf="@id/imgShop">
-
-        <LinearLayout
-            android:id="@+id/InfText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/tvShopName"
-                style="@style/info_list_tittle"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1" />
+            android:layout_toRightOf="@id/imgShop" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/InfText"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal" >
+                android:orientation="vertical" >
 
                 <TextView
+                    android:id="@+id/tvShopName"
+                    style="@style/info_list_tittle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/listcolor"
-                    android:textSize="@dimen/info_listContent_textsize" 
-                    android:text="@string/arrive_shop_time"/>
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/arrive_shop_time"
+                        android:textColor="@color/listcolor"
+                        android:textSize="@dimen/info_listContent_textsize" />
+
+                    <TextView
+                        android:id="@+id/tvArrangeTiime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:textColor="@color/bonus_point"
+                        android:textSize="@dimen/info_listContent_textsize" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tvArrangeTiime"
+                    android:id="@+id/tvArrangeEvent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_margin="5dp"
                     android:ellipsize="end"
                     android:lines="1"
                     android:textColor="@color/listcolor"
                     android:textSize="@dimen/info_listContent_textsize" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvArrangeEvent"
+            <ImageView
+                android:id="@+id/imgOrderPassed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textColor="@color/listcolor"
-                android:textSize="@dimen/info_listContent_textsize" />
-        </LinearLayout>
-        <ImageView 
-            android:id="@+id/imgOrderPassed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_order_passed"
-            android:layout_gravity="top|right"
-            android:visibility="gone"/>
+                android:layout_gravity="top|right"
+                android:src="@drawable/ic_order_passed"
+                android:visibility="gone" />
         </FrameLayout>
     </RelativeLayout>
 

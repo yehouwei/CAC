@@ -45,5 +45,9 @@
     <string name="logout">注销</string>
     <string name="logout_confirm">你确定要注销?</string>
     <string name="logout_succeed">注销成功</string>
+    <string name="shop_tel">联系电话:</string>
+    <string name="shop_address">地址:</string>
+    <string name="input_account">请输入用户名</string>
+    <string name="input_password">请输入密码</string>
 
 </resources>
