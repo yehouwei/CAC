@@ -108,11 +108,19 @@ public class LocationListFragment extends BaseFragment {
 			    mZhongYi.setStoreList(mStoreList);
 			}
 		});
+		initLoadingInfo(view);
+		// 异常情况下点击刷新按钮处理
+		 //setOnRefreshClickListener(mOnRefreshClickListener);
 	}
 	public void setDatas(List<Store> storelist) {
 		this.mStoreList=storelist;
 		// TODO Auto-generated method stub
 		mLocationAdapater.setDatas(storelist);
 		mLocationAdapater.notifyDataSetChanged();
+	}
+
+	public void setFLoadingViewVisible(int visible) {
+		// TODO Auto-generated method stub
+		setLoadingViewVisible(visible,mListView);
 	}
 }

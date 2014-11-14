@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -132,13 +133,12 @@ public class LoacationFragment extends BaseFragment {
 		searchImageView = (ImageButton) view.findViewById(R.id.btnSearch);
 		searchImageView.setOnClickListener(onClickListener);
 		searchEditText = (EditText) view.findViewById(R.id.etsearch);
-		/*
-		 * mvpLocation=(ViewPager)view.findViewById(R.id.vpLocation);
-		 * mlocatioLocationViewPagerAdapter=new
-		 * LocationViewPagerAdapter(getActivity());
-		 * mlocatioLocationViewPagerAdapter.setDatas(mStores);
-		 * mvpLocation.setAdapter(mlocatioLocationViewPagerAdapter);
-		 */
+/*		  mvpLocation=(ViewPager)view.findViewById(R.id.vpLocation);
+		  mlocatioLocationViewPagerAdapter=new
+		  LocationViewPagerAdapter(getFragmentManager(),getActivity());
+		  mlocatioLocationViewPagerAdapter.setDatas(mStores);
+		  mvpLocation.setAdapter(mlocatioLocationViewPagerAdapter);*/
+		 
 		FragmentTransaction ft = getActivity().getSupportFragmentManager()
 				.beginTransaction();
 		mXlistviewFragment = new LocationListFragment(getActivity());
@@ -149,8 +149,6 @@ public class LoacationFragment extends BaseFragment {
 		ft.commit();
 		// getChildFragmentManager().executePendingTransactions();
 
-		// 异常情况下点击刷新按钮处理
-		// setOnRefreshClickListener(mOnRefreshClickListener);
 	}
 
 	public void initHeader(View v) {
@@ -193,15 +191,16 @@ public class LoacationFragment extends BaseFragment {
 	}
 
 	public void request(int regionId, String keyWord) {
+		mIsFirstLoad = false;
 		if (!isRequesEnd) {
 			return;
 		}
 
-/*		isRequesEnd = false; // 改变正在请求的标识
+		isRequesEnd = false; // 改变正在请求的标识
 		
-		  if ((mStores == null) || (mStores.size() == 0)) {
-		  setLoadingViewVisible(View.VISIBLE, mXlistviewFragment); }*/
-		 
+/*		  if ((mStores == null) || (mStores.size() == 0)) {
+			  mXlistviewFragment.setFLoadingViewVisible(View.VISIBLE); 
+		  }*/
 		HttpApi.getStores(getActivity(), mPageNum, mPageSize, regionId,
 				keyWord, mOnRequestListener);
 	}
@@ -235,11 +234,10 @@ public class LoacationFragment extends BaseFragment {
 							// mStores.clear();
 							mStores.clear();
 							mStores.addAll(stores);
+/*							mlocatioLocationViewPagerAdapter.setDatas(mStores);
+							mlocatioLocationViewPagerAdapter.notifyDataSetChanged();*/
 							mXlistviewFragment.setDatas(mStores);
 							mMapFragment.addMapMaker(mStores);
-
-							// mLocationAdapater.setDatas(stores);
-							// mLocationAdapater.notifyDataSetChanged();
 
 						}
 					}

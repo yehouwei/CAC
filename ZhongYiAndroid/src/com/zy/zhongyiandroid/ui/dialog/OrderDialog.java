@@ -286,13 +286,13 @@ public class OrderDialog extends Dialog {
 						mOrder.setRemarks(tvEvent.getText().toString());
 						mOrder.setStatus("0");
 						mOrder.setUserId(1);
-						dismiss();
+						//dismiss();
 						post();
 
 					}
 				} else {
 					delete(mOrder.getId());
-					dismiss();
+					//dismiss();
 					// mOnDialogClickListener.onClick(v, mOrder);
 
 				}
@@ -358,8 +358,21 @@ public class OrderDialog extends Dialog {
 							// toast(mOrderPost.getMessage());
 							toast(context.getResources().getString(
 									R.string.order_successfully));
+							dismiss();
+						} else {
 
+							toast(context.getResources().getString(
+									R.string.request_fail));
 						}
+
+					} else if (state == HttpConnectManager.STATE_TIME_OUT) { // 请求超时
+						toast(context.getResources().getString(
+								R.string.time_out));
+
+					} else { // 请求失败
+						Toast.makeText(context, R.string.request_fail,
+								Toast.LENGTH_SHORT).show();
+
 					}
 
 				}
@@ -389,11 +402,25 @@ public class OrderDialog extends Dialog {
 							toast(context.getResources().getString(
 									R.string.deleted_successfully));
 							mOnListRefreshListener.onRefresh();
+							dismiss();
+						} else {
+
+							toast(context.getResources().getString(
+									R.string.request_fail));
 						}
+
+					} else if (state == HttpConnectManager.STATE_TIME_OUT) { // 请求超时
+						toast(context.getResources().getString(
+								R.string.time_out));
+
+					} else { // 请求失败
+						Toast.makeText(context, R.string.request_fail,
+								Toast.LENGTH_SHORT).show();
 
 					}
 
 				}
+
 			});
 		}
 	};

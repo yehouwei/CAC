@@ -191,7 +191,7 @@ public class StoreMapActivity extends BaseActivity {
 		// ZhongYi mZhongYi = ((ZhongYi)getApplicationContext());
 		// mZhongYi.setStoreList(storeList)
 		// mOrderDialog.setShopData(getIntent().getExtras().getStringArray("store"));
-		mOrderDialog
+/*		mOrderDialog
 				.setOnOrderDialogClickListener(new OnOrderDialogClickListener() {
 
 					@Override
@@ -200,7 +200,7 @@ public class StoreMapActivity extends BaseActivity {
 						post(order);
 						mOrderDialog.dismiss();
 					}
-				});
+				});*/
 		mOrderDialog.showDialog();
 	}
 
@@ -216,7 +216,7 @@ public class StoreMapActivity extends BaseActivity {
 		super.onDestroy();
 	}
 
-	private void post(Order order) {
+/*	private void post(Order order) {
 		// TODO Auto-generated method stub
 		HttpApi.order(this, order, mOnRequestListener);
 	}
@@ -237,14 +237,33 @@ public class StoreMapActivity extends BaseActivity {
 						mOrderPost = (OrderPost) result;
 						if (mOrderPost != null) {
 							Toast.makeText(StoreMapActivity.this,
-									mOrderPost.getMessage(), Toast.LENGTH_LONG)
+									mOrderPost.getMessage(), Toast.LENGTH_SHORT)
 									.show();
 						}
+					 else {
+
+							toast(getResources().getString(R.string.request_fail));
+						}
+					
+				} else if (state == HttpConnectManager.STATE_TIME_OUT) { // 请求超时
+					toast(getResources().getString(R.string.request_fail));
 					}
+					Toast.makeText(getActivity(), R.string.time_out, Toast.LENGTH_SHORT).show();
+					mListView.setPullLoadEnable(false);
+				} else { // 请求失败
+					if ((mPageNum == 1) && ((mMessages == null) || (mMessages.size() == 0))) {
+						setNotNetVisible(View.VISIBLE, mListView);
+					}
+					Toast.makeText(getActivity(), R.string.request_fail, Toast.LENGTH_SHORT).show();
+					mListView.setPullLoadEnable(false);
+
+				}
 
 				}
 			});
 		}
 	};
-
+	void toast(String message){
+	Toast.makeText(this, message, Toast.LENGTH_SHORT).show();	
+	}*/
 }

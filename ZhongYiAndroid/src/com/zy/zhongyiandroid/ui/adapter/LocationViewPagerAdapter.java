@@ -8,11 +8,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.data.bean.Introduce;
 import com.zy.zhongyiandroid.data.bean.Store;
+import com.zy.zhongyiandroid.ui.fragment.BaseFragment;
+import com.zy.zhongyiandroid.ui.fragment.LocationListFragment;
+import com.zy.zhongyiandroid.ui.fragment.LocationMapFragment;
 import com.zy.zhongyiandroid.ui.widget.list.XListView;
 
 import android.R.integer;
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -21,8 +26,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LocationViewPagerAdapter extends PagerAdapter {
+public class LocationViewPagerAdapter extends FragmentPagerAdapter {
+	LocationListFragment mXlistviewFragment;
+	LocationMapFragment mMapFragment;
 	private List<Store> mList;
+	public LocationViewPagerAdapter(FragmentManager fm,Context context) {
+		super(fm);
+		// TODO Auto-generated constructor stub
+		 mXlistviewFragment = new LocationListFragment(context);
+		mMapFragment=new LocationMapFragment();
+	}
+/*	
 	XListView xListView;
 
 	LayoutInflater mLayoutInflater;
@@ -43,12 +57,12 @@ public class LocationViewPagerAdapter extends PagerAdapter {
 
 	public void setDatas(List<Store> list) {
 		this.mList = list;
-		/*
+		
 		 * for(int i=0;i<mList.size();i++){ View
 		 * view=mLayoutInflater.inflate(R.layout.adapter_introduce, null);
 		 * mHolderView = new HolderView(view);
 		 * mHolderView.setData(mList.get(i)); vList.add(view); }
-		 */
+		 
 
 	}
 
@@ -66,7 +80,7 @@ public class LocationViewPagerAdapter extends PagerAdapter {
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-/*		ListHolderView mHolderView;
+		ListHolderView mHolderView;
 		View view;
 	
 		// TODO Auto-generated method stub
@@ -81,7 +95,7 @@ public class LocationViewPagerAdapter extends PagerAdapter {
 		
 		}
 		container.addView(view);
-		return container;*/
+		return container;
 		container.addView(vList.get(position));
 		return vList.get(position);
 		
@@ -115,13 +129,13 @@ public class LocationViewPagerAdapter extends PagerAdapter {
 		private GoogleMap map;
 		public  MapHolderView(View view) {
 			// TODO Auto-generated constructor stub
-/*			FragmentManager myFM = get
+			FragmentManager myFM = get
 
 			final SupportMapFragment myMAPF = (SupportMapFragment) myFM
 			                .findFragmentById(R.id.map);
 			 mMap = myMAPF.getMap(); 
 
-			 addMapMaker(mStoreList);*/
+			 addMapMaker(mStoreList);
 		}
 		public void setData(Store introduce){
 
@@ -137,4 +151,32 @@ public class LocationViewPagerAdapter extends PagerAdapter {
 		container.removeView(vList.get(position));
 	}
 
+	@Override
+	public Fragment getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+*/
+
+	@Override
+	public Fragment getItem(int arg0) {
+		// TODO Auto-generated method stub
+		if(arg0==0){
+			return mXlistviewFragment;
+			
+		}else{
+			return mMapFragment;
+		}
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+	public void setDatas(List<Store> list) {
+		this.mList = list;
+		//mXlistviewFragment.setDatas(mList);
+		mMapFragment.addMapMaker(mList);
+	}
 }
