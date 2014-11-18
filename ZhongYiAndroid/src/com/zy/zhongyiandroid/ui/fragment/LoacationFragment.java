@@ -19,6 +19,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ import com.zy.zhongyiandroid.ui.adapter.LocationViewPagerAdapter;
 import com.zy.zhongyiandroid.ui.dialog.RegionDialog;
 import com.zy.zhongyiandroid.ui.dialog.RegionDialog.OnDialogClickListener;
 import com.zy.zhongyiandroid.ui.widget.Header;
+import com.zy.zhongyiandroid.ui.widget.LoadingInfo;
 
 /**
  * 消息
@@ -59,7 +61,7 @@ public class LoacationFragment extends BaseFragment {
 
 	LocationMapFragment mMapFragment;
 	LocationListFragment mXlistviewFragment;
-	ViewPager mvpLocation;
+	//ViewPager mvpLocation;
 	LocationViewPagerAdapter mlocatioLocationViewPagerAdapter;
 
 	Store mStore;
@@ -80,7 +82,10 @@ public class LoacationFragment extends BaseFragment {
 	private Boolean isOne = true;
 
 	private Boolean isMapFirst = true;
+	
+	LoadingInfo mLoadingInfo;
 
+	FrameLayout flLocation;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -95,6 +100,8 @@ public class LoacationFragment extends BaseFragment {
 		// 初始化ui\
 		initUI(view);
 		initHeader(view);
+
+		//mLoadingInfo=(LoadingInfo)view.findViewById(R.id.loadingInfo);
 		return view;
 	}
 
@@ -102,7 +109,7 @@ public class LoacationFragment extends BaseFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		// initdata(storeName[0]);
-		request(0, null);
+		//request(0, null);
 		requestRegion();
 	}
 
@@ -133,22 +140,17 @@ public class LoacationFragment extends BaseFragment {
 		searchImageView = (ImageButton) view.findViewById(R.id.btnSearch);
 		searchImageView.setOnClickListener(onClickListener);
 		searchEditText = (EditText) view.findViewById(R.id.etsearch);
-/*		  mvpLocation=(ViewPager)view.findViewById(R.id.vpLocation);
-		  mlocatioLocationViewPagerAdapter=new
-		  LocationViewPagerAdapter(getFragmentManager(),getActivity());
-		  mlocatioLocationViewPagerAdapter.setDatas(mStores);
-		  mvpLocation.setAdapter(mlocatioLocationViewPagerAdapter);*/
-		 
+		flLocation =(FrameLayout)view.findViewById(R.id.vpLocation);
 		FragmentTransaction ft = getActivity().getSupportFragmentManager()
 				.beginTransaction();
 		mXlistviewFragment = new LocationListFragment(getActivity());
-		mMapFragment=new LocationMapFragment();
+		mMapFragment = new LocationMapFragment();
 		ft.add(R.id.vpLocation, mXlistviewFragment);
 		ft.add(R.id.vpLocation, mMapFragment);
 		ft.hide(mMapFragment).show(mXlistviewFragment);
 		ft.commit();
 		// getChildFragmentManager().executePendingTransactions();
-
+		//initLoadingInfo(view);
 	}
 
 	public void initHeader(View v) {
@@ -197,10 +199,13 @@ public class LoacationFragment extends BaseFragment {
 		}
 
 		isRequesEnd = false; // 改变正在请求的标识
+
 		
-/*		  if ((mStores == null) || (mStores.size() == 0)) {
-			  mXlistviewFragment.setFLoadingViewVisible(View.VISIBLE); 
-		  }*/
+		 if ((mStores == null) || (mStores.size() == 0)) {
+			
+		  setLoadingViewVisible(View.VISIBLE, flLocation); 
+		  }
+		 
 		HttpApi.getStores(getActivity(), mPageNum, mPageSize, regionId,
 				keyWord, mOnRequestListener);
 	}
@@ -232,12 +237,55 @@ public class LoacationFragment extends BaseFragment {
 						if (stores != null && stores.size() != 0) {
 							// initData(sorts);
 							// mStores.clear();
+							setLoadInfoGone(flLocation);
 							mStores.clear();
 							mStores.addAll(stores);
-/*							mlocatioLocationViewPagerAdapter.setDatas(mStores);
-							mlocatioLocationViewPagerAdapter.notifyDataSetChanged();*/
+							/*
+							 * mlocatioLocationViewPagerAdapter.setDatas(mStores)
+							 * ;
+							 * mlocatioLocationViewPagerAdapter.notifyDataSetChanged
+							 * ();
+							 */
 							mXlistviewFragment.setDatas(mStores);
 							mMapFragment.addMapMaker(mStores);
+
+						}
+					}
+				}
+			});
+
+		}
+	};
+	public void requestRegion() {
+		/*
+		 * if (!isRequesEnd) { return; }
+		 * 
+		 * isRequesEnd = false; // 改变正在请求的标识
+		 *//*
+			 * if ((mStores == null) || (mStores.size() == 0)) {
+			 * setLoadingViewVisible(View.VISIBLE, mListView); }
+			 */
+		HttpApi.getRegion(getActivity(), mRegionOnRequestListener);
+	}
+
+	public OnRequestListener mRegionOnRequestListener = new OnRequestListener() {
+
+		@Override
+		public void onResponse(String url, final int state,
+				final Object result, int type) {
+			// mIsFirstLoad = false;
+			isRequesEnd = true;
+			mHandler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					if ((state == HttpConnectManager.STATE_SUC)
+							&& (result != null)) {
+
+						List<Region> regions = (List<Region>) result;
+
+						if (regions != null && regions.size() != 0) {
+							mRegions = regions;
 
 						}
 					}
@@ -255,7 +303,7 @@ public class LoacationFragment extends BaseFragment {
 				switch (touchedView.getId()) {
 				case R.id.spinnerview:
 					RegionDialog mRegionDialog = new RegionDialog(
-							getActivity(), R.style.MyDialog,mRegions);
+							getActivity(), R.style.MyDialog, mRegions);
 					mRegionDialog
 							.setOnDialogClickListener(new OnDialogClickListener() {
 
@@ -264,7 +312,10 @@ public class LoacationFragment extends BaseFragment {
 									// TODO Auto-generated method stub
 
 									spinnerTextView.setText(region.getText());
-									request(region.getId(), null);
+									//request(region.getId(), null);
+									mXlistviewFragment.setRegionId(region.getId());
+									mMapFragment.setmRegionId(region.getId());
+									//mXlistviewFragment.setKeyWord(null);
 								}
 							});
 					mRegionDialog.showDialog();
@@ -286,14 +337,13 @@ public class LoacationFragment extends BaseFragment {
 
 			} else {
 				// initdata(search);
-/*				try {
-					String strUTF8 = URLEncoder.encode(search, "UTF-8");
-					request(0, strUTF8);
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-				request(0, getUTF8XMLString(searchEditText.getText().toString()));
+				/*
+				 * try { String strUTF8 = URLEncoder.encode(search, "UTF-8");
+				 * request(0, strUTF8); } catch (UnsupportedEncodingException e)
+				 * { // TODO Auto-generated catch block e.printStackTrace(); }
+				 */
+			//	request(0,
+			//			getUTF8XMLString(searchEditText.getText().toString()));
 
 			}
 
@@ -316,46 +366,8 @@ public class LoacationFragment extends BaseFragment {
 		}
 		// return to String Formed
 		return xmlUTF8;
-	} 
-	public void requestRegion() {
-/*		if (!isRequesEnd) {
-			return;
-		}
-
-		isRequesEnd = false; // 改变正在请求的标识
-*/		/*
-		 * if ((mStores == null) || (mStores.size() == 0)) {
-		 * setLoadingViewVisible(View.VISIBLE, mListView); }
-		 */
-		HttpApi.getRegion(getActivity(), mRegionOnRequestListener);
 	}
 
-	public OnRequestListener mRegionOnRequestListener = new OnRequestListener() {
 
-		@Override
-		public void onResponse(String url, final int state,
-				final Object result, int type) {
-			// mIsFirstLoad = false;
-			isRequesEnd = true;
-			mHandler.post(new Runnable() {
-
-				@Override
-				public void run() {
-					if ((state == HttpConnectManager.STATE_SUC)
-							&& (result != null)) {
-
-						List<Region> regions = (List<Region>) result;
-
-						if (regions != null && regions.size() != 0) {
-							mRegions=regions;
-
-
-						}
-					}
-				}
-			});
-
-		}
-	};
 
 }

@@ -27,15 +27,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class LocationViewPagerAdapter extends FragmentPagerAdapter {
+	public LocationViewPagerAdapter(FragmentManager fm) {
+		super(fm);
+		// TODO Auto-generated constructor stub
+		//mXlistviewFragment=new LocationListFragment();
+		mMapFragment=new  LocationMapFragment();
+	}
 	LocationListFragment mXlistviewFragment;
 	LocationMapFragment mMapFragment;
 	private List<Store> mList;
-	public LocationViewPagerAdapter(FragmentManager fm,Context context) {
-		super(fm);
-		// TODO Auto-generated constructor stub
-		 mXlistviewFragment = new LocationListFragment(context);
-		mMapFragment=new LocationMapFragment();
-	}
+
+
 /*	
 	XListView xListView;
 
@@ -176,7 +178,7 @@ public class LocationViewPagerAdapter extends FragmentPagerAdapter {
 	}
 	public void setDatas(List<Store> list) {
 		this.mList = list;
-		//mXlistviewFragment.setDatas(mList);
+		mXlistviewFragment.setDatas(mList);
 		mMapFragment.addMapMaker(mList);
 	}
 }

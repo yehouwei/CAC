@@ -32,9 +32,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
+                android:text="@string/all"
                 android:textColor="@color/app_text"
-                android:textSize="15sp" 
-                android:text="@string/all"/>
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -78,24 +78,21 @@
                 android:src="@drawable/icon_location_searchedit" />
         </LinearLayout>
     </LinearLayout>
-       <FrameLayout
-            android:id="@+id/vpLocation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-        </FrameLayout>
 
- <!--    <android.support.v4.view.ViewPager
+    <FrameLayout
         android:id="@+id/vpLocation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search" >
-    </android.support.v4.view.ViewPager> -->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search"
+        android:orientation="vertical" >
+    </FrameLayout>
 
-    <com.zy.zhongyiandroid.ui.widget.LoadingInfo
+    
+         <com.zy.zhongyiandroid.ui.widget.LoadingInfo
         android:id="@+id/loadingInfo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/search" />
+    
 
 </RelativeLayout>

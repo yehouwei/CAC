@@ -70,14 +70,14 @@ public class StoreMapActivity extends BaseActivity {
 
 	private void initUI() {
 		// TODO Auto-generated method stub
-		mtvName = (TextView) this.findViewById(R.id.tvName);
+		//mtvName = (TextView) this.findViewById(R.id.tvName);
 		mtvTel = (TextView) this.findViewById(R.id.tvTel);
 		mtvAddress = (TextView) this.findViewById(R.id.tvAddress);
 		mbtnCall = (ImageButton) this.findViewById(R.id.btnCall);
 		mtvErrorMap=(TextView)findViewById(R.id.tvErrorMap);
-		mtvName.setText(store.getName());
-		mtvTel.setText(store.getPhone());
-		mtvAddress.setText(store.getAddress());
+		//mtvName.setText(store.getName());
+		mtvTel.setText(getResources().getString(R.string.shop_tel)+store.getPhone());
+		mtvAddress.setText(getResources().getString(R.string.shop_address)+store.getAddress());
 		android.support.v4.app.FragmentManager fragmentManager =getSupportFragmentManager();
 		FragmentTransaction ft=fragmentManager.beginTransaction();
 		SupportMapFragment mSupportMapFragment=(SupportMapFragment) fragmentManager
@@ -148,7 +148,7 @@ public class StoreMapActivity extends BaseActivity {
 	public void initHeader() {
 		Header mHeader = (Header) this.findViewById(R.id.header);
 		if (mHeader != null) {
-			mHeader.setEmptyTittle(store.getName());
+			mHeader.setTitle(store.getName());
 			mHeader.setBackBtn(getResources().getString(R.string.tab_location),
 					new View.OnClickListener() {
 

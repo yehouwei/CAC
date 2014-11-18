@@ -158,6 +158,9 @@ public class SettingFragment extends BaseFragment {
 					// TODO Auto-generated method stub
 
 					// TODO Auto-generated method stub
+					
+					if(!userData.getIsShowLogin()){	
+					
 					AlertDialog alert = new AlertDialog.Builder(
 							getActivity()).create();
 					alert.setTitle(getResources().getString(R.string.logout_confirm));
@@ -186,10 +189,14 @@ public class SettingFragment extends BaseFragment {
 								}
 							});
 					alert.show();
-
-				
+					}else {
+						toast(getResources().getString(R.string.please_login));
+					}
 				}
 			});
+				
+			
+			
 		}
 	}
 

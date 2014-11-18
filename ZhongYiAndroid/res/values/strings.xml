@@ -49,5 +49,6 @@
     <string name="shop_address">地址:</string>
     <string name="input_account">请输入用户名</string>
     <string name="input_password">请输入密码</string>
+    <string name="please_login">您还没登录</string>
 
 </resources>

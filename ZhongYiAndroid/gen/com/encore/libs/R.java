@@ -71,25 +71,25 @@ public final class R {
 	public static final class id {
 		public static final int all = 0x7f050003;
 		public static final int bottom = 0x7f050002;
-		public static final int date_day = 0x7f05005b;
-		public static final int date_month = 0x7f05005a;
-		public static final int date_year = 0x7f050059;
-		public static final int decrement = 0x7f050094;
-		public static final int discard = 0x7f050057;
-		public static final int image = 0x7f050055;
-		public static final int increment = 0x7f050092;
+		public static final int date_day = 0x7f05005a;
+		public static final int date_month = 0x7f050059;
+		public static final int date_year = 0x7f050058;
+		public static final int decrement = 0x7f050095;
+		public static final int discard = 0x7f050056;
+		public static final int image = 0x7f050054;
+		public static final int increment = 0x7f050093;
 		public static final int left = 0x7f050000;
-		public static final int numberpicker_input = 0x7f050093;
-		public static final int progressBar1 = 0x7f050058;
+		public static final int numberpicker_input = 0x7f050094;
+		public static final int progressBar1 = 0x7f050057;
 		public static final int right = 0x7f050001;
 		public static final int rotate = 0x7f05001f;
-		public static final int save = 0x7f050056;
-		public static final int swipe = 0x7f05009f;
-		public static final int time_am = 0x7f0500a3;
-		public static final int time_hours = 0x7f0500a0;
-		public static final int time_minutes = 0x7f0500a1;
-		public static final int time_pm = 0x7f0500a4;
-		public static final int time_switcher = 0x7f0500a2;
+		public static final int save = 0x7f050055;
+		public static final int swipe = 0x7f0500a0;
+		public static final int time_am = 0x7f0500a4;
+		public static final int time_hours = 0x7f0500a1;
+		public static final int time_minutes = 0x7f0500a2;
+		public static final int time_pm = 0x7f0500a5;
+		public static final int time_switcher = 0x7f0500a3;
 	}
 	public static final class integer {
 		public static final int np_config_longAnimTime = 0x7f070000;

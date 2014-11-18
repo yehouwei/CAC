@@ -1,20 +1,14 @@
 package com.zy.zhongyiandroid.ui.adapter;
 
 import java.util.List;
-import java.util.zip.Inflater;
-
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zy.zhongyiandroid.R;
-import com.zy.zhongyiandroid.data.bean.Message;
 import com.zy.zhongyiandroid.data.bean.Store;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.location.Location;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
