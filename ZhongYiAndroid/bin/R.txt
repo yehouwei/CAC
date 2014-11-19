@@ -731,6 +731,7 @@ int string google_service_no_support 0x7f080049
 int string hello_world 0x7f08002f
 int string input_account 0x7f08005a
 int string input_password 0x7f08005b
+int string login 0x7f08005d
 int string logout 0x7f080055
 int string logout_confirm 0x7f080056
 int string logout_succeed 0x7f080057

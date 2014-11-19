@@ -150,7 +150,7 @@ public class SettingFragment extends BaseFragment {
 					MyIntroduceActivity.startActivity(getActivity(),
 							getActivity().getString(R.string.tab_personal));
 				}
-			});
+			});			
 			mHeader.setRight(getResources().getString(R.string.logout), new View.OnClickListener() {
 				
 				@Override
@@ -159,7 +159,7 @@ public class SettingFragment extends BaseFragment {
 
 					// TODO Auto-generated method stub
 					
-					if(!userData.getIsShowLogin()){	
+					if(userData.getIsShowLogin()){	
 					
 					AlertDialog alert = new AlertDialog.Builder(
 							getActivity()).create();

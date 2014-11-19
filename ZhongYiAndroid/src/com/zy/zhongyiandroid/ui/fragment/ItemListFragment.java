@@ -27,6 +27,7 @@ import com.encore.libs.http.HttpConnectManager;
 import com.encore.libs.http.OnRequestListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.data.NetCache;
@@ -60,15 +61,15 @@ public class ItemListFragment extends BaseFragment {
 	// 第一页
 	public final int FRIST_PAGE_NUMBER = 1;
 	
-	private int pageNum=1;
+	private int mPageNum=1;
 	
-	private int pageSize=15;
+	private int mPageSize=12;
 
 	private GridView mGridView;
 	
 	PullToRefreshGridView mPullToRefreshGridView;
 	
-	private List<Item> mList =new ArrayList<Item>();
+	private List<Item> mItems =new ArrayList<Item>();
 
 	private ItemsAdapter mSortAdapter;
 
@@ -112,7 +113,7 @@ public class ItemListFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		request();
+		initData(null);
 	}
 	public static void startActivity(Context c){
 		Intent i = new Intent(c,MyIntroduceActivity.class);
@@ -139,7 +140,7 @@ public class ItemListFragment extends BaseFragment {
 		mPullToRefreshGridView = (PullToRefreshGridView)view.findViewById(R.id.pull_refresh_grid);
 		mGridView = mPullToRefreshGridView.getRefreshableView();
 		mSortAdapter = new ItemsAdapter(getActivity());
-		mSortAdapter.setDatas(mList);
+		mSortAdapter.setDatas(mItems);
 		mGridView.setAdapter(mSortAdapter);
 		mGridView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -153,40 +154,46 @@ public class ItemListFragment extends BaseFragment {
 					ft.replace(getContainerViewID(), newFragment);
 					ft.addToBackStack(null);
 					ft.commit();*/
-				ProductDetailActivity.startActivity(getActivity(), mList.get(position),subCategory.getCatName());
+				ProductDetailActivity.startActivity(getActivity(), mItems.get(position),subCategory.getCatName());
 				
 			}
 		});
-		mPullToRefreshGridView.setOnRefreshListener(new OnRefreshListener2<GridView>() {
+		mPullToRefreshGridView
+		.setOnRefreshListener(new OnRefreshListener2<GridView>() {
 
 			@Override
 			public void onPullDownToRefresh(
 					PullToRefreshBase<GridView> refreshView) {
 				// TODO Auto-generated method stub
 				mHandler.postDelayed(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						request();
+						mPullToRefreshGridView.onRefreshComplete();
 					}
-				}, 200);
-				mPullToRefreshGridView.onRefreshComplete();
+				}, 2000);
+				request();
+			
 			}
 
 			@Override
 			public void onPullUpToRefresh(
 					PullToRefreshBase<GridView> refreshView) {
-				// TODO Auto-generated method stub
+				if(isRequesEnd)
+				{						// TODO Auto-generated method stub
 				mHandler.postDelayed(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						request();
+					mPageNum++;
+					mPullToRefreshGridView.onRefreshComplete();
+					
 					}
-				}, 200);
-				mPullToRefreshGridView.onRefreshComplete();
+				}, 2000);
+				request();
+				}
 			}
 		});
 			
@@ -194,9 +201,9 @@ public class ItemListFragment extends BaseFragment {
 		
 	
 		mSortAdapter.notifyDataSetChanged();
-/*		initLoadingInfo(view);
+		initLoadingInfo(view);
 		// 异常情况下点击刷新按钮处理
-		setOnRefreshClickListener(mOnRefreshClickListener);*/
+		setOnRefreshClickListener(mOnRefreshClickListener);
 	}
 	
 	public void initHeader(View v){
@@ -220,11 +227,11 @@ public class ItemListFragment extends BaseFragment {
 			return;
 		}
 
-/*		isRequesEnd = false; // 改变正在请求的标识
-		if ((mPageNum == 1) && ((mSort == null) || (mSort.size() == 0))) {
-			setLoadingViewVisible(View.VISIBLE, mGridView);
-		}*/
-		HttpApi.getItemList(getActivity(), pageNum, pageSize, subCategory.getCatCode(), mOnRequestListener);
+		isRequesEnd = false; // 改变正在请求的标识
+		if ((mPageNum == 1) && ((mItems == null) || (mItems.size() == 0))) {
+			setLoadingViewVisible(View.VISIBLE, mPullToRefreshGridView);
+		}
+		HttpApi.getItemList(getActivity(), mPageNum, mPageSize, subCategory.getCatCode(), mOnRequestListener);
 	}
 	public OnRequestListener mOnRequestListener = new OnRequestListener() {
 
@@ -249,217 +256,83 @@ public class ItemListFragment extends BaseFragment {
 
 						if(items!=null&&items.size()!=0){
 							initData(items);
-						}
-							
-				}
-				}
-			});
-					
-		}
-	};
-/*	public OnRequestListener mOnRequestListener = new OnRequestListener() {
-
-		@Override
-		public void onResponse(String url, final int state, final Object result, int type) {
-			mIsFirstLoad = false;
-			if (!isAdded()) // fragment 已退出,返回
-			{
-				return;
-			}
-			isRequesEnd = true;
-			mHandler.post(new Runnable() {
-
-				@Override
-				public void run() {
-					if ((state == HttpConnectManager.STATE_SUC) && (result != null)) {
-						List<Sort> sorts = (List<Sort>) result;
-
-						if ((sorts != null) && (sorts.size() > 0)) {
-							initData(mSort);
-							onStopLoad();
-							setLoadInfoGone(mGridView);
-							if (sorts.size() < mPageSize) {
-								mGridView.setPullLoadEnable(false);
+							setLoadInfoGone(mPullToRefreshGridView);
+							if (items.size() < mPageSize) {
+								mPullToRefreshGridView.setMode(Mode.PULL_FROM_START);
 							} else {
-								mGridView.setPullLoadEnable(true);
+								mPullToRefreshGridView.setMode(Mode.BOTH);
 							}
-
-						} else {
-							mGridView.setPullLoadEnable(false);
-							if ((mPageNum == 1) && ((mSort == null) || (mSort.size() == 0))) {
-								setNotDataVisible(View.VISIBLE, mGridView);
+						}else {
+							mPullToRefreshGridView.setMode(Mode.PULL_FROM_START);
+							if ((mPageNum == 1) && ((mItems == null) || (mItems.size() == 0))) {
+								setNotDataVisible(View.VISIBLE, mPullToRefreshGridView);
 							}
 						}
 					} else if (state == HttpConnectManager.STATE_TIME_OUT) { // 请求超时
-						if ((mPageNum == 1) && ((mSort == null) || (mSort.size() == 0))) {
-							setNotNetVisible(View.VISIBLE, mGridView);
+						if ((mPageNum == 1) && ((mItems == null) || (mItems.size() == 0))) {
+							setNotNetVisible(View.VISIBLE, mPullToRefreshGridView);
 						}
 						Toast.makeText(getActivity(), R.string.time_out, Toast.LENGTH_SHORT).show();
-						mGridView.setPullLoadEnable(false);
+						mPullToRefreshGridView.setMode(Mode.PULL_FROM_START);
 					} else { // 请求失败
-						if ((mPageNum == 1) && ((mSort == null) || (mSort.size() == 0))) {
-							setNotNetVisible(View.VISIBLE, mGridView);
+						if ((mPageNum == 1) && ((mItems == null) || (mItems.size() == 0))) {
+							setNotNetVisible(View.VISIBLE, mPullToRefreshGridView);
 						}
 						Toast.makeText(getActivity(), R.string.request_fail, Toast.LENGTH_SHORT).show();
-						mGridView.setPullLoadEnable(false);
+						mPullToRefreshGridView.setMode(Mode.PULL_FROM_START);
 
 					}
 				}
 			});
 
 		}
-	};*/
+	};
+
+
 	Handler mHandler = new Handler();
 	public void initData( List<Item> sorts){
 		if (mGridView.getAdapter() == null) {
 			mSortAdapter = new ItemsAdapter(getActivity());
 			mGridView.setAdapter(mSortAdapter);
 		}
-		if(sorts==null){
-			request();
-		}else{
-			mList.addAll(sorts);
-		}
-		mSortAdapter.setDatas(mList);
-		mSortAdapter.notifyDataSetChanged();
-	}
-
-
-	/*public void initData( List<Sort> sorts) {
-		if (mGridView.getAdapter() == null) {
-			mSortAdapter = new SortAdapter(getActivity());
-			mGridView.setAdapter(mSortAdapter);
-		}
-
 		if (sorts == null) {// 第一次进入先读取缓存
 			// 获取缓存数据
-			if (mPageNum == 1) {
-				mSort = NetCache.readCache(ServerUrl.URL_SORT_BASELIST);
-			}
-			if (mIsFirstLoad||mSort==null||mSort.size()==0) {
+			if (mIsFirstLoad||sorts==null||sorts.size()==0) {
 				request();
 			}
-			mSortAdapter.setDatas(mSort);
+			mSortAdapter.setDatas(sorts);
 			mSortAdapter.notifyDataSetChanged();
-		} else {
+		}else{
 			if (sorts.size() != 0) {
 				if (sorts == null) {
-					sorts = new ArrayList<Sort>();
+					sorts = new ArrayList<Item>();
 				}
-				if (mPageNum == FRIST_PAGE_NUMBER) {
-					mSort = sorts;
-					// 保存第一页的缓存
-					try {
-						NetCache.saveCache(sorts, ServerUrl.URL_SORT_BASELIST);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				} else {
-					mSort.addAll(sorts);
-				}
-
-				mSortAdapter.setDatas(sorts);
-				mSortAdapter.notifyDataSetChanged();
+		
+		if (mPageNum == FRIST_PAGE_NUMBER) {
+			mItems = sorts;
+		}else{
+			mItems.addAll(sorts);
+		}
+		mSortAdapter.setDatas(mItems);
+		mSortAdapter.notifyDataSetChanged();
 			} else {
 				// 判断是否有网络的情况
-				if ((mSort == null) && (mSort.size() == 0)) {
-					setNotNetVisible(View.VISIBLE, mGridView);
+				if ((mItems == null) && (mItems.size() == 0)) {
+					setNotNetVisible(View.VISIBLE, mPullToRefreshGridView);
 				}
 			}
 		}
 
-	}*/
+	}
 
-	/**
-	 * 刷新按钮
-	 */
-/*	private OnRefreshClickListener mOnRefreshClickListener = new OnRefreshClickListener() {
+	private OnRefreshClickListener mOnRefreshClickListener = new OnRefreshClickListener() {
 
 		@Override
 		public void onClick(View v) {
 			initData(null); // 请求数据
 
 		}
-	};*/
-	
-/*	public XGridViewListener mIXListViewListener = new XGridViewListener() {
-
-		@Override
-		public void onRefresh() {
-			if (isRequesEnd) {
-				mHandler.postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						onStopLoad();
-					}
-				}, 2000);
-
-				request();
-
-			}
-		}
-
-		@Override
-		public void onLoadMore() {
-			if (isRequesEnd) {
-				mPageNum++;
-				request();
-			}
-		}
-	};*/
-
-
-/*	@Override
-	public void onFooterRefresh(PullToRefreshView view) {
-		
-		// TODO Auto-generated method stub
-		if (isRequesEnd) {
-			mHandler.postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					onStopLoad();
-				}
-			}, 2000);
-
-			
-		}
-		view.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				onStopLoad();
-				for(int i=0;i<2;i++){
-//					mSort.setGroupImage(R.drawable.info01);
-					mSort.setGroupLabel("zhongyi");
-					mList.add(mSort);
-				}
-					mSortAdapter.notifyDataSetChanged();
-								mPullToRefreshView.onFooterRefreshComplete(0);
-								
-			}
-		}, 200);
-	}*/
-
-/*	@Override
-	public void onHeaderRefresh(PullToRefreshView view) {
-		// TODO Auto-generated method stub
-		view.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				onStopLoad();
-				Toast.makeText(getActivity(), "runing", Toast.LENGTH_SHORT).show();
-				for(int i=0;i<2;i++){
-//					mSort.setGroupImage(R.drawable.info01);
-					mSort.setGroupLabel("zhongyi");
-					mList.add(mSort);
-				}	
-					mSortAdapter.notifyDataSetChanged();
-				mPullToRefreshView.onHeaderRefreshComplete();
-			}
-		}, 200);
-	
-			
-	}*/
+	};
 
 }
 		

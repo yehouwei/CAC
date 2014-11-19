@@ -1329,6 +1329,7 @@ containing a value of this type.
         public static final int hello_world=0x7f08002f;
         public static final int input_account=0x7f08005a;
         public static final int input_password=0x7f08005b;
+        public static final int login=0x7f08005d;
         public static final int logout=0x7f080055;
         public static final int logout_confirm=0x7f080056;
         public static final int logout_succeed=0x7f080057;
