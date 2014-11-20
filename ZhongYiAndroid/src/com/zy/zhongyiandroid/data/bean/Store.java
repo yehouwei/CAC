@@ -14,8 +14,15 @@ public class Store implements Serializable{
 	private String regionName;
 	private int regionId;
 	private String longitude;
-	private int code;
+	private String code;
 	private String image;
+	private String dataFormat;
+	public String getDataFormat() {
+		return dataFormat;
+	}
+	public void setDataFormat(String dataFormat) {
+		this.dataFormat = dataFormat;
+	}
 	public String getRegionName() {
 		return regionName;
 	}
@@ -72,10 +79,10 @@ public class Store implements Serializable{
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	public String getImage() {

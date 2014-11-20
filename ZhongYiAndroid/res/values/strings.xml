@@ -24,6 +24,7 @@
     <string name="not_network">没有网络,请检查网络状态!</string>
     <string name="time_out">请求超时,请重试!</string>
     <string name="request_fail">请求失败,请重试!</string>
+    <string name="not_data">没有数据</string>
     <string name="arrive_shop_time">到店时间:</string>
     <string name="deleted_successfully">删除成功</string>
     <string name="order_successfully">预约成功</string>

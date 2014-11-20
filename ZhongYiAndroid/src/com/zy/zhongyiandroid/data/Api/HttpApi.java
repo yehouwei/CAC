@@ -49,7 +49,7 @@ public class HttpApi {
 			int pageSize, OnRequestListener onRequestListener) {
 		Request request = new Request(ServerUrl.getMainCategoryUrl(pageNum,
 				pageSize));
-		request.setParser(new JsonParser(BaseCategory.class, true));
+		request.setParser(new MyJsonParser(BaseCategory.class, true));
 		request.setOnRequestListener(onRequestListener);
 		HttpConnectManager.getInstance(context).doGet(request);
 	}
@@ -58,7 +58,7 @@ public class HttpApi {
 			int pageNum, int pageSize, OnRequestListener onRequestListener) {
 		Request request = new Request(ServerUrl.getSubCategoryUrl(groupId,
 				pageNum, pageSize));
-		request.setParser(new JsonParser(SubCategory.class, true));
+		request.setParser(new MyJsonParser(SubCategory.class, true));
 		request.setOnRequestListener(onRequestListener);
 		HttpConnectManager.getInstance(context).doGet(request);
 	}

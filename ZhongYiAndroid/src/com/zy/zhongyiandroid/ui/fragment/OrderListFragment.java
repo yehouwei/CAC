@@ -216,7 +216,7 @@ public class OrderListFragment extends BaseFragment {
 						} else {
 							mListView.setPullLoadEnable(false);
 							if ((mPageNum == 1) && ((orders == null) || (orders.size() == 0))) {
-								mOrders.clear();
+								//mOrders.clear();
 								setNotDataVisible(View.VISIBLE, mListView);
 							}
 						}

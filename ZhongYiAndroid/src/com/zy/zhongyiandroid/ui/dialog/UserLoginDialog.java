@@ -147,7 +147,7 @@ public class UserLoginDialog extends Dialog {
 							mOnDialogClickListener.startActivity();
 							
 						}else{
-							toast("登录失败");
+							toast(userLoginResult.getMessage());
 						}
 						
 					}

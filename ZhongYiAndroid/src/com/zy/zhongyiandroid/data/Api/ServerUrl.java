@@ -16,7 +16,7 @@ public class ServerUrl {
 	public static String URL_REIGION = ROOT + "region/getList.do";
 	public static String URL_STORES = ROOT + "shop/getPageList.do";
 	public static String URl_USER = ROOT + "user/getById.do";
-	public static String URL_LOGIN=ROOT+"loginManage/login.do";
+	public static String URL_LOGIN=ROOT+"frontLogin/login.do";
 	public static String URL_ORDER = ROOT + "arrange/getPageListByUserId.do";
 	public static String URL_ORDER_DELETE=ROOT+"arrange/deleteById.do";
 	public static String URL_BONUS=ROOT+"user/getById.do";
@@ -42,8 +42,8 @@ public class ServerUrl {
 
 	public static String getSubCategoryUrl(String catCode, int pageNum,
 			int pageSize) {
-		return URL_SUB_CATEGORYT + "?catCode=" + catCode + "&page=" + pageNum
-				+ "&pageSize=" + pageSize + "&dataFormat=" + DATA_FORMAT;
+		return URL_SUB_CATEGORYT + "?catCode=" + catCode + "&amp;page=" + pageNum
+				+ "&;pageSize=" + pageSize + "&dataFormat=" + DATA_FORMAT;
 	}
 
 	public static String getItemListUrl(int pageNum, int pageSize,

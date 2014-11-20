@@ -31,6 +31,7 @@ public class ZhongYi extends Application {
 		zhongyiInstance=this;
 		init();
 		initImageLoader(getApplicationContext());
+
 	}
 	
 	public static ZhongYi newInstance() {

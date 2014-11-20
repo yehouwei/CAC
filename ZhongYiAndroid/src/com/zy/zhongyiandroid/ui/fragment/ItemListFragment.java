@@ -187,12 +187,15 @@ public class ItemListFragment extends BaseFragment {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-					mPageNum++;
+
+
 					mPullToRefreshGridView.onRefreshComplete();
 					
 					}
 				}, 2000);
+				mPageNum++;
 				request();
+			
 				}
 			}
 		});

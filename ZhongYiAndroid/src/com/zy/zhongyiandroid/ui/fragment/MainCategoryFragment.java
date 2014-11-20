@@ -235,8 +235,11 @@ public class MainCategoryFragment extends BaseFragment {
 				public void run() {
 					if ((state == HttpConnectManager.STATE_SUC)
 							&& (result != null)) {
-
-							List<BaseCategory> categories =(List<BaseCategory>) result;
+						MyApiResult myApiResult = (MyApiResult) result;
+						List<BaseCategory> categories = null;
+						if(myApiResult.getRows()!=null){
+							categories = (List<BaseCategory>) myApiResult.getRows();
+						}
 						
 						if (categories != null && categories.size() != 0) {
 							initData(categories);							
@@ -311,12 +314,12 @@ public class MainCategoryFragment extends BaseFragment {
 				}
 				mBaseListAdapter.setDatas(mBaseCategories);
 				mBaseListAdapter.notifyDataSetChanged();
-			} else {
+			} /*else {
 				// 判断是否有网络的情况
 				if ((mBaseCategories == null) && (mBaseCategories.size() == 0)) {
 					setNotNetVisible(View.VISIBLE, mPullToRefreshGridView);
 				}
-			}
+			}*/
 		}
 
 	}

@@ -12,6 +12,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 import com.zy.zhongyiandroid.R;
 import com.zy.zhongyiandroid.ui.fragment.BaseFragment;
 import com.zy.zhongyiandroid.ui.fragment.LoacationFragment;
@@ -40,6 +42,7 @@ public class MainActivity extends FragmentActivity implements MyRadioGroup.OnChe
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		 UmengUpdateAgent.update(this);
 		setContentView(R.layout.activity_main);
 		// 初始化UI
 		initUI();
@@ -48,11 +51,12 @@ public class MainActivity extends FragmentActivity implements MyRadioGroup.OnChe
 	}
 	public void onResume() {
 		super.onResume();
+		MobclickAgent.onResume(this);
 		
 	}
 	public void onPause() {
 		super.onPause();
-		
+		MobclickAgent.onPause(this);
 	}
 
 	

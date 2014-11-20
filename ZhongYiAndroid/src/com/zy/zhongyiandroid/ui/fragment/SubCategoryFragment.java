@@ -26,6 +26,7 @@ import com.zy.zhongyiandroid.data.Api.HttpApi;
 import com.zy.zhongyiandroid.data.Api.ServerUrl;
 import com.zy.zhongyiandroid.data.bean.BaseCategory;
 import com.zy.zhongyiandroid.data.bean.Message;
+import com.zy.zhongyiandroid.data.bean.MyApiResult;
 import com.zy.zhongyiandroid.data.bean.SubCategory;
 import com.zy.zhongyiandroid.ui.activity.ItemListActivity;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
@@ -222,7 +223,11 @@ public class SubCategoryFragment extends BaseFragment {
 				@Override
 				public void run() {
 					if ((state == HttpConnectManager.STATE_SUC) && (result != null)) {
-						List<SubCategory> sorts = (List<SubCategory>) result;
+						MyApiResult myApiResult = (MyApiResult) result;
+						List<SubCategory> sorts = null;
+						if(myApiResult.getRows()!=null){
+							sorts = (List<SubCategory>) myApiResult.getRows();
+						}
 						if(sorts!=null&&sorts.size()!=0){
 							initData(sorts);
 							setLoadInfoGone(mPullToRefreshGridView);

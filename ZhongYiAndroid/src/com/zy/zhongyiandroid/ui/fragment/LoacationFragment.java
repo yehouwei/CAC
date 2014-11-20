@@ -192,7 +192,7 @@ public class LoacationFragment extends BaseFragment {
 				});
 	}
 
-	public void request(int regionId, String keyWord) {
+/*	public void request(int regionId, String keyWord) {
 		mIsFirstLoad = false;
 		if (!isRequesEnd) {
 			return;
@@ -240,12 +240,12 @@ public class LoacationFragment extends BaseFragment {
 							setLoadInfoGone(flLocation);
 							mStores.clear();
 							mStores.addAll(stores);
-							/*
+							
 							 * mlocatioLocationViewPagerAdapter.setDatas(mStores)
 							 * ;
 							 * mlocatioLocationViewPagerAdapter.notifyDataSetChanged
 							 * ();
-							 */
+							 
 							mXlistviewFragment.setDatas(mStores);
 							mMapFragment.addMapMaker(mStores);
 
@@ -255,7 +255,7 @@ public class LoacationFragment extends BaseFragment {
 			});
 
 		}
-	};
+	};*/
 	public void requestRegion() {
 		/*
 		 * if (!isRequesEnd) { return; }

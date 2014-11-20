@@ -10,9 +10,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,16 +29,21 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.encore.libs.http.HttpConnectManager;
+import com.encore.libs.http.OnRequestListener;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zy.zhongyiandroid.R;
+import com.zy.zhongyiandroid.ZhongYi;
 import com.zy.zhongyiandroid.data.shared.UserData;
+import com.zy.zhongyiandroid.ui.activity.MainActivity;
 import com.zy.zhongyiandroid.ui.activity.MyBonusActivity;
 import com.zy.zhongyiandroid.ui.activity.MyIntroduceActivity;
 import com.zy.zhongyiandroid.ui.activity.MyOrderActivity;
 import com.zy.zhongyiandroid.ui.activity.StoreMapActivity;
 import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog;
 import com.zy.zhongyiandroid.ui.dialog.UserLoginDialog.OnLoginDialogClickListener;
+import com.umeng.update.UmengUpdateAgent;
 
 import com.zy.zhongyiandroid.ui.widget.Header;
 
@@ -302,6 +310,8 @@ public class SettingFragment extends BaseFragment {
 			 */
 			case R.id.rlUpdate:
 				/* UpdateVersionAcitvity.startActivity(getActivity()); */
+		
+				    UmengUpdateAgent.forceUpdate(getActivity());
 				break;
 			default:
 				break;
@@ -332,6 +342,7 @@ public class SettingFragment extends BaseFragment {
 		dialog.showDialog();
 
 	}*/
+
 	void toast(String text) {
 		Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
 	}

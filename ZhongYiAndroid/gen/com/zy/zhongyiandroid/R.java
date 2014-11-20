@@ -951,8 +951,32 @@ containing a value of this type.
         public static final int test=0x7f0200bc;
         public static final int tv_dialog_order_simplist_selector=0x7f0200bd;
         public static final int tv_header_selector=0x7f0200be;
-        public static final int xlistview_arrow=0x7f0200bf;
-        public static final int zhongyi_logo=0x7f0200c0;
+        public static final int umeng_common_gradient_green=0x7f0200bf;
+        public static final int umeng_common_gradient_orange=0x7f0200c0;
+        public static final int umeng_common_gradient_red=0x7f0200c1;
+        public static final int umeng_update_btn_check_off_focused_holo_light=0x7f0200c2;
+        public static final int umeng_update_btn_check_off_holo_light=0x7f0200c3;
+        public static final int umeng_update_btn_check_off_pressed_holo_light=0x7f0200c4;
+        public static final int umeng_update_btn_check_on_focused_holo_light=0x7f0200c5;
+        public static final int umeng_update_btn_check_on_holo_light=0x7f0200c6;
+        public static final int umeng_update_btn_check_on_pressed_holo_light=0x7f0200c7;
+        public static final int umeng_update_button_cancel_bg_focused=0x7f0200c8;
+        public static final int umeng_update_button_cancel_bg_normal=0x7f0200c9;
+        public static final int umeng_update_button_cancel_bg_selector=0x7f0200ca;
+        public static final int umeng_update_button_cancel_bg_tap=0x7f0200cb;
+        public static final int umeng_update_button_check_selector=0x7f0200cc;
+        public static final int umeng_update_button_close_bg_selector=0x7f0200cd;
+        public static final int umeng_update_button_ok_bg_focused=0x7f0200ce;
+        public static final int umeng_update_button_ok_bg_normal=0x7f0200cf;
+        public static final int umeng_update_button_ok_bg_selector=0x7f0200d0;
+        public static final int umeng_update_button_ok_bg_tap=0x7f0200d1;
+        public static final int umeng_update_close_bg_normal=0x7f0200d2;
+        public static final int umeng_update_close_bg_tap=0x7f0200d3;
+        public static final int umeng_update_dialog_bg=0x7f0200d4;
+        public static final int umeng_update_title_bg=0x7f0200d5;
+        public static final int umeng_update_wifi_disable=0x7f0200d6;
+        public static final int xlistview_arrow=0x7f0200d7;
+        public static final int zhongyi_logo=0x7f0200d8;
     }
     public static final class id {
         public static final int EtPassWord=0x7f050072;
@@ -966,7 +990,7 @@ containing a value of this type.
         public static final int MyIntroduce=0x7f050081;
         public static final int Timepicker=0x7f05006e;
         public static final int Update=0x7f05008f;
-        public static final int action_settings=0x7f0500bd;
+        public static final int action_settings=0x7f0500cd;
         public static final int alertItem=0x7f05005e;
         public static final int all=0x7f050003;
         public static final int bonus=0x7f050032;
@@ -977,9 +1001,9 @@ containing a value of this type.
         public static final int btnCancle=0x7f05006a;
         public static final int btnDate=0x7f050065;
         public static final int btnPositive=0x7f05005c;
-        public static final int btnRefresh=0x7f0500b3;
-        public static final int btnRight1=0x7f0500a9;
-        public static final int btnRight2=0x7f0500aa;
+        public static final int btnRefresh=0x7f0500c3;
+        public static final int btnRight1=0x7f0500b8;
+        public static final int btnRight2=0x7f0500b9;
         public static final int btnSearch=0x7f050078;
         public static final int btnTime=0x7f050066;
         public static final int buyButton=0x7f05000e;
@@ -1011,7 +1035,7 @@ containing a value of this type.
         public static final int image=0x7f050054;
         public static final int imageView=0x7f050036;
         public static final int imagetoppic=0x7f05007e;
-        public static final int imgBack=0x7f0500a7;
+        public static final int imgBack=0x7f0500b6;
         public static final int imgEventFliter=0x7f050064;
         public static final int imgIcon=0x7f05006c;
         public static final int imgLine=0x7f05007d;
@@ -1022,7 +1046,7 @@ containing a value of this type.
         public static final int imgMyorderaboutus=0x7f050080;
         public static final int imgMyorderupdate=0x7f05008e;
         public static final int imgOrderPassed=0x7f050051;
-        public static final int imgProgress=0x7f0500ae;
+        public static final int imgProgress=0x7f0500bd;
         public static final int imgShop=0x7f05004d;
         public static final int imgShopFliter=0x7f050061;
         public static final int imgShow=0x7f050024;
@@ -1031,13 +1055,13 @@ containing a value of this type.
         public static final int imgintroduce=0x7f050042;
         public static final int increment=0x7f050093;
         public static final int left=0x7f050000;
-        public static final int liRight=0x7f0500ab;
-        public static final int linBack=0x7f0500a6;
-        public static final int linearLayout=0x7f0500ad;
+        public static final int liRight=0x7f0500ba;
+        public static final int linBack=0x7f0500b5;
+        public static final int linearLayout=0x7f0500bc;
         public static final int listView=0x7f05004c;
         public static final int llStoreInfo=0x7f050037;
         public static final int loadingInfo=0x7f050033;
-        public static final int loadingView=0x7f0500b0;
+        public static final int loadingView=0x7f0500bf;
         public static final int lvDialog=0x7f05005d;
         public static final int lvStore=0x7f05007a;
         public static final int manualOnly=0x7f05001c;
@@ -1055,8 +1079,8 @@ containing a value of this type.
         public static final int myorderupdatetext=0x7f050090;
         public static final int none=0x7f050004;
         public static final int normal=0x7f050005;
-        public static final int notDataView=0x7f0500b1;
-        public static final int notNetWork=0x7f0500af;
+        public static final int notDataView=0x7f0500c0;
+        public static final int notNetWork=0x7f0500be;
         public static final int numberpicker_input=0x7f050094;
         public static final int pcIntroduce=0x7f050035;
         public static final int production=0x7f05000b;
@@ -1103,7 +1127,7 @@ containing a value of this type.
         public static final int strict_sandbox=0x7f05000d;
         public static final int swipe=0x7f0500a0;
         public static final int terrain=0x7f050007;
-        public static final int textView=0x7f0500b2;
+        public static final int textView=0x7f0500c2;
         public static final int time_am=0x7f0500a4;
         public static final int time_hours=0x7f0500a1;
         public static final int time_minutes=0x7f0500a2;
@@ -1113,7 +1137,7 @@ containing a value of this type.
         public static final int tvAddress=0x7f050038;
         public static final int tvArrangeEvent=0x7f050050;
         public static final int tvArrangeTiime=0x7f05004f;
-        public static final int tvBack=0x7f0500a8;
+        public static final int tvBack=0x7f0500b7;
         public static final int tvCancel=0x7f05006b;
         public static final int tvContent=0x7f05002e;
         public static final int tvContentIntroduce=0x7f050044;
@@ -1122,7 +1146,8 @@ containing a value of this type.
         public static final int tvList=0x7f05003e;
         public static final int tvMessageTitle=0x7f05002d;
         public static final int tvName=0x7f05006d;
-        public static final int tvRight=0x7f0500ac;
+        public static final int tvNotData=0x7f0500c1;
+        public static final int tvRight=0x7f0500bb;
         public static final int tvShopName=0x7f05004e;
         public static final int tvSpinner=0x7f050076;
         public static final int tvSubCatoryName=0x7f050053;
@@ -1131,20 +1156,35 @@ containing a value of this type.
         public static final int tvTitleIntroduce=0x7f050043;
         public static final int tvTittle=0x7f050048;
         public static final int tvshop=0x7f050060;
+        public static final int umeng_common_icon_view=0x7f0500a6;
+        public static final int umeng_common_notification=0x7f0500aa;
+        public static final int umeng_common_notification_controller=0x7f0500a7;
+        public static final int umeng_common_progress_bar=0x7f0500ad;
+        public static final int umeng_common_progress_text=0x7f0500ac;
+        public static final int umeng_common_rich_notification_cancel=0x7f0500a9;
+        public static final int umeng_common_rich_notification_continue=0x7f0500a8;
+        public static final int umeng_common_title=0x7f0500ab;
+        public static final int umeng_update_content=0x7f0500b0;
+        public static final int umeng_update_id_cancel=0x7f0500b3;
+        public static final int umeng_update_id_check=0x7f0500b1;
+        public static final int umeng_update_id_close=0x7f0500af;
+        public static final int umeng_update_id_ignore=0x7f0500b4;
+        public static final int umeng_update_id_ok=0x7f0500b2;
+        public static final int umeng_update_wifi_indicator=0x7f0500ae;
         public static final int viewHeader=0x7f050073;
         public static final int vpIntroduce=0x7f050034;
         public static final int vpLocation=0x7f050079;
         public static final int webview=0x7f050022;
         public static final int wrap_content=0x7f050011;
-        public static final int xlistview_footer_content=0x7f0500b4;
-        public static final int xlistview_footer_hint_textview=0x7f0500b6;
-        public static final int xlistview_footer_progressbar=0x7f0500b5;
-        public static final int xlistview_header_arrow=0x7f0500bb;
-        public static final int xlistview_header_content=0x7f0500b7;
-        public static final int xlistview_header_hint_textview=0x7f0500b9;
-        public static final int xlistview_header_progressbar=0x7f0500bc;
-        public static final int xlistview_header_text=0x7f0500b8;
-        public static final int xlistview_header_time=0x7f0500ba;
+        public static final int xlistview_footer_content=0x7f0500c4;
+        public static final int xlistview_footer_hint_textview=0x7f0500c6;
+        public static final int xlistview_footer_progressbar=0x7f0500c5;
+        public static final int xlistview_header_arrow=0x7f0500cb;
+        public static final int xlistview_header_content=0x7f0500c7;
+        public static final int xlistview_header_hint_textview=0x7f0500c9;
+        public static final int xlistview_header_progressbar=0x7f0500cc;
+        public static final int xlistview_header_text=0x7f0500c8;
+        public static final int xlistview_header_time=0x7f0500ca;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070001;
@@ -1197,28 +1237,44 @@ containing a value of this type.
         public static final int refresh_header=0x7f03002b;
         public static final int swipeback_layout=0x7f03002c;
         public static final int time_picker=0x7f03002d;
-        public static final int widget_header=0x7f03002e;
-        public static final int widget_loading=0x7f03002f;
-        public static final int widget_loading_info=0x7f030030;
-        public static final int widget_not_data=0x7f030031;
-        public static final int widget_not_network=0x7f030032;
-        public static final int xlistview_footer=0x7f030033;
-        public static final int xlistview_header=0x7f030034;
+        public static final int umeng_common_download_notification=0x7f03002e;
+        public static final int umeng_update_dialog=0x7f03002f;
+        public static final int widget_header=0x7f030030;
+        public static final int widget_loading=0x7f030031;
+        public static final int widget_loading_info=0x7f030032;
+        public static final int widget_not_data=0x7f030033;
+        public static final int widget_not_network=0x7f030034;
+        public static final int xlistview_footer=0x7f030035;
+        public static final int xlistview_header=0x7f030036;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
     }
     public static final class string {
+        public static final int UMAppUpdate=0x7f080076;
+        public static final int UMBreak_Network=0x7f08006e;
+        public static final int UMDialog_InstallAPK=0x7f08007a;
+        public static final int UMGprsCondition=0x7f080074;
+        public static final int UMIgnore=0x7f080078;
+        public static final int UMNewVersion=0x7f080070;
+        public static final int UMNotNow=0x7f080077;
+        public static final int UMTargetSize=0x7f080073;
+        public static final int UMToast_IsUpdating=0x7f080079;
+        public static final int UMUpdateCheck=0x7f08007b;
+        public static final int UMUpdateContent=0x7f080071;
+        public static final int UMUpdateNow=0x7f080075;
+        public static final int UMUpdateSize=0x7f080072;
+        public static final int UMUpdateTitle=0x7f08006f;
         public static final int about_us=0x7f080038;
         public static final int accept=0x7f080007;
         public static final int action_settings=0x7f08002e;
-        public static final int all=0x7f080046;
+        public static final int all=0x7f080047;
         public static final int app_name=0x7f080004;
-        public static final int arrive_shop_time=0x7f080043;
-        public static final int cac=0x7f080048;
-        public static final int cancle=0x7f08004d;
-        public static final int choose_date=0x7f080053;
-        public static final int choose_time=0x7f080054;
+        public static final int arrive_shop_time=0x7f080044;
+        public static final int cac=0x7f080049;
+        public static final int cancle=0x7f08004e;
+        public static final int choose_date=0x7f080054;
+        public static final int choose_time=0x7f080055;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f08000e;
@@ -1318,31 +1374,32 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f080025;
-        public static final int confirm=0x7f08004b;
-        public static final int confirm_order=0x7f08004c;
-        public static final int confirm_to_call=0x7f08004a;
+        public static final int confirm=0x7f08004c;
+        public static final int confirm_order=0x7f08004d;
+        public static final int confirm_to_call=0x7f08004b;
         public static final int create_calendar_message=0x7f08000a;
         public static final int create_calendar_title=0x7f080009;
         public static final int decline=0x7f080008;
-        public static final int deleted_successfully=0x7f080044;
-        public static final int google_service_no_support=0x7f080049;
+        public static final int deleted_successfully=0x7f080045;
+        public static final int google_service_no_support=0x7f08004a;
         public static final int hello_world=0x7f08002f;
-        public static final int input_account=0x7f08005a;
-        public static final int input_password=0x7f08005b;
-        public static final int login=0x7f08005d;
-        public static final int logout=0x7f080055;
-        public static final int logout_confirm=0x7f080056;
-        public static final int logout_succeed=0x7f080057;
+        public static final int input_account=0x7f08005b;
+        public static final int input_password=0x7f08005c;
+        public static final int login=0x7f08005e;
+        public static final int logout=0x7f080056;
+        public static final int logout_confirm=0x7f080057;
+        public static final int logout_succeed=0x7f080058;
         public static final int message_detail=0x7f080031;
+        public static final int not_data=0x7f080043;
         public static final int not_network=0x7f080040;
         public static final int np_number_picker_decrement_button=0x7f080003;
         public static final int np_number_picker_increment_button=0x7f080002;
         public static final int np_number_picker_increment_scroll_action=0x7f080001;
         public static final int np_number_picker_increment_scroll_mode=0x7f080000;
-        public static final int order_successfully=0x7f080045;
+        public static final int order_successfully=0x7f080046;
         public static final int personal_bonus=0x7f080035;
         public static final int personal_order=0x7f080036;
-        public static final int please_login=0x7f08005c;
+        public static final int please_login=0x7f08005d;
         public static final int product_detail=0x7f080039;
         /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
@@ -1354,9 +1411,9 @@ containing a value of this type.
         public static final int pull_to_refresh_refreshing_label=0x7f08002a;
         public static final int pull_to_refresh_release_label=0x7f080029;
         public static final int request_fail=0x7f080042;
-        public static final int search_hint=0x7f080047;
-        public static final int shop_address=0x7f080059;
-        public static final int shop_tel=0x7f080058;
+        public static final int search_hint=0x7f080048;
+        public static final int shop_address=0x7f08005a;
+        public static final int shop_tel=0x7f080059;
         public static final int store_picture_message=0x7f080006;
         public static final int store_picture_title=0x7f080005;
         /**  main tab小标题 
@@ -1366,22 +1423,37 @@ containing a value of this type.
         public static final int tab_personal=0x7f080034;
         public static final int tab_selected_brand=0x7f080032;
         public static final int time_out=0x7f080041;
+        public static final int umeng_common_action_cancel=0x7f080063;
+        public static final int umeng_common_action_continue=0x7f080062;
+        public static final int umeng_common_action_info_exist=0x7f08005f;
+        public static final int umeng_common_action_pause=0x7f080061;
+        public static final int umeng_common_download_failed=0x7f080069;
+        public static final int umeng_common_download_finish=0x7f08006a;
+        public static final int umeng_common_download_notification_prefix=0x7f080064;
+        public static final int umeng_common_icon=0x7f08006d;
+        public static final int umeng_common_info_interrupt=0x7f080060;
+        public static final int umeng_common_network_break_alert=0x7f080068;
+        public static final int umeng_common_patch_finish=0x7f08006b;
+        public static final int umeng_common_pause_notification_prefix=0x7f080065;
+        public static final int umeng_common_silent_download_finish=0x7f08006c;
+        public static final int umeng_common_start_download_notification=0x7f080066;
+        public static final int umeng_common_start_patch_notification=0x7f080067;
         public static final int version_update=0x7f080037;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
         public static final int wallet_buy_button_place_holder=0x7f080027;
-        public static final int what_event=0x7f08004f;
-        public static final int which_shop=0x7f08004e;
+        public static final int what_event=0x7f080050;
+        public static final int which_shop=0x7f08004f;
         public static final int xlistview_footer_hint_normal=0x7f08003e;
         public static final int xlistview_footer_hint_ready=0x7f08003f;
         public static final int xlistview_header_hint_loading=0x7f08003c;
         public static final int xlistview_header_hint_normal=0x7f08003a;
         public static final int xlistview_header_hint_ready=0x7f08003b;
         public static final int xlistview_header_last_time=0x7f08003d;
-        public static final int your_email=0x7f080052;
-        public static final int your_name=0x7f080050;
-        public static final int your_tel=0x7f080051;
+        public static final int your_email=0x7f080053;
+        public static final int your_name=0x7f080051;
+        public static final int your_tel=0x7f080052;
     }
     public static final class style {
         public static final int AiTheme=0x7f090010;
